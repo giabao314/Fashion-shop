@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 
-=======
->>>>>>> 599ae3619be9f554891182a8f37c05d820d4c127
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,19 +10,63 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
-<<<<<<< HEAD
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Fashion shop</title>
 </head>
 
-=======
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"/>
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <title>Fashion shop</title>
-</head>
->>>>>>> 599ae3619be9f554891182a8f37c05d820d4c127
 <body>
+    <div id="modal" class="js-modal">
+        <div class="container js-modal-container" id="container">
+            <div class="modal-close js-modal-close">
+                <i class='bx bx-x' ></i>
+            </div>
+            <div class="form-container sign-up-container">
+                <form action="index.php">
+                    <h1>Create Account</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>or use your email for registration</span>
+                    <input type="text" placeholder="Name" />
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="index.php">
+                    <h1>Sign in</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>or use your account</span>
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <a href="#">Forgot your password?</a>
+                    <button>Sign In</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button class="ghost" id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Enter your personal details and start journey with us</p>
+                        <button class="ghost" id="signUp">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="app">
         <header id="heading">
             <!-- Left navbar -->
@@ -36,11 +77,7 @@
                     <div class="subnav-separate"></div>
                     <a href="#" class="nav-product">
                         SẢN PHẨM
-<<<<<<< HEAD
                         <i class='bx bx-chevron-down'></i></i>
-=======
-                        <i class='bx bx-chevron-down' ></i></i>
->>>>>>> 599ae3619be9f554891182a8f37c05d820d4c127
                     </a>
                     <div class="subnav-menu-left">
                         <a class="subnav-item" href="#">THỜI TRANG NAM</a>
@@ -62,8 +99,7 @@
                     </div>
                 </form>
                 <div class="auth-btn">
-                    <button class="right-item login" href="#">Đăng nhập</button>
-                    <button class="right-item register" href="#">Đăng ký</button>
+                    <button class="right-item auth js-sign-auth">Đăng nhập / Đăng kí</button>
                 </div>
                 <div class="cart-dropdown">
                     <a href="cart.php" class="nav-cart">
@@ -482,6 +518,7 @@
 
         </div>
     </div>
+
     <?php
     // $car = ['saab', 'toyota', 'pergeut', 'lexus', 'honda', 'suzuki'];
     // foreach($car as $key => $value) {
@@ -500,7 +537,7 @@
     //     ],
     //     [
     //         'name' => 'Trung Nguyen',
-    //         'age' => 20,
+    //         'age' => 20, 
     //         'address' => 'Ha Noi'
     //     ],
     //     [
@@ -566,11 +603,45 @@
     // echo sum(4, 5);
 
     ?>
+
+
     <form action="welcome.php" method="get">
         Name: <input type="text" name="fname" /></br>
         Age: <input type="text" name="age" />
         <input type="submit" />
     </form>
+
+    <script>
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+    </script>
+    <script>
+        const modalContainer = document.querySelector('.js-modal-container');
+        const modal = document.querySelector('.js-modal');
+        function showAuth() {
+            modal.classList.add('open');
+        }
+        function hideAuth() {
+            modal.classList.remove('open');
+        }
+        document.querySelector('.js-sign-auth').addEventListener('click', showAuth);
+        document.querySelector('.js-modal-close').addEventListener('click', hideAuth);
+        modal.addEventListener('click', hideAuth);
+
+        modalContainer.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+    </script>
+
 
 </body>
 

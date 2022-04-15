@@ -218,7 +218,7 @@
                 <div class="row">
                     <div class="col-sm-6 col-lg-3">
                         <div class="widget widget-about">
-                            <img src="./assets/img/logo/logo.png" alt="">
+                            <img src="./assets/img/payment/payment-footer.png" alt="">
                             <p>
                                 Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
                             </p>
