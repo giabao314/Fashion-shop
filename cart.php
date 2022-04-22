@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +10,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./assets/css/cart.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Fashion shop</title>
 </head>
+
 <body>
     <div id="app">
         <header id="heading">
@@ -24,7 +26,7 @@
                     <div class="subnav-separate"></div>
                     <a href="#" class="nav-product">
                         SẢN PHẨM
-                        <i class='bx bx-chevron-down' ></i></i>
+                        <i class='bx bx-chevron-down'></i></i>
                     </a>
                     <div class="subnav-menu-left">
                         <a class="subnav-item" href="#">THỜI TRANG NAM</a>
@@ -103,13 +105,13 @@
                                         <td class="price-col">$80.00</td>
                                         <td class="quantity-col">
                                             <div class="cart-product-quantity">
-                                            <input type="number" value="1" min="1" max="1000" step="1"/>
+                                                <input type="number" value="1" min="1" max="1000" step="1" />
                                             </div>
                                         </td>
                                         <td class="total-col">$80.00</td>
                                         <td class="remove-col">
                                             <button class="btn-remove">
-                                            <i class='bx bx-x'></i>
+                                                <i class='bx bx-x'></i>
                                             </button>
                                         </td>
                                     </tr>
@@ -131,13 +133,13 @@
                                         <td class="price-col">$80.00</td>
                                         <td class="quantity-col">
                                             <div class="cart-product-quantity">
-                                            <input type="number" value="1" min="1" max="1000" step="1"/>
+                                                <input type="number" value="1" min="1" max="1000" step="1" />
                                             </div>
                                         </td>
                                         <td class="total-col">$80.00</td>
                                         <td class="remove-col">
                                             <button class="btn-remove">
-                                            <i class='bx bx-x'></i>
+                                                <i class='bx bx-x'></i>
                                             </button>
                                         </td>
                                     </tr>
@@ -145,8 +147,8 @@
                             </table>
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <button class="btn btn-outline-dark col-3 btn-block">
-                                        <span>UPDATE CART</span>
-                                        <i class='bx bx-refresh'></i>
+                                    <span>UPDATE CART</span>
+                                    <i class='bx bx-refresh'></i>
                                 </button>
                             </div>
                         </div>
@@ -161,17 +163,17 @@
                                         </tr>
                                         <tr class="summary-shipping">
                                             <td>Phương thức vận chuyển</td>
-                                        </tr>        
+                                        </tr>
                                         <tr class="summary-shipping-row">
                                             <td>
                                                 <div class="summary-shipping-row form-check">
                                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                                     <label class="form-check-label" for="flexRadioDefault1">
-                                                    Default radio
+                                                        Default radio
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td>$80.00</td>           
+                                            <td>$80.00</td>
                                         </tr>
                                         <tr class="summary-shipping-row">
                                             <td>
@@ -193,7 +195,7 @@
                                         </tr>
                                         <tr class="summary-total">
                                             <td>Thành tiền</td>
-                                            <td>$40.00</td>                                                
+                                            <td>$40.00</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -203,8 +205,8 @@
                             </div>
                             <div class="d-grid gap-2 d-md-flex justify-content-md">
                                 <button href="#" class="btn btn-outline-dark btn-block">
-                                        <span>Tiếp tục mua sắm</span>
-                                        <i class='bx bx-refresh'></i>
+                                    <span>Tiếp tục mua sắm</span>
+                                    <i class='bx bx-refresh'></i>
                                 </button>
                             </div>
                         </div>
@@ -228,43 +230,43 @@
                             <a href="#"><i class='bx bxl-twitter'></i></a>
                             <a href="#"><i class='bx bxl-instagram-alt'></i></a>
                             <a href="#"><i class='bx bxl-youtube'></i></a>
-                            <a href="#"><i class='bx bxl-pinterest' ></i></a>
+                            <a href="#"><i class='bx bxl-pinterest'></i></a>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3">
                         <div class="widget">
-                                <h4 class="widget-title">Useful Links</h4>
-                                <ul>
-                                    <li><a href="#">About Molla</a></li>
-                                    <li><a href="#">How to shop on Molla</a></li>
-                                    <li><a href="#">FAQ</a></li>
-                                    <li><a href="#">Contact us</a></li>
-                                    <li><a href="#">Log in</a></li>
-                                </ul>
-                            </div>
+                            <h4 class="widget-title">Useful Links</h4>
+                            <ul>
+                                <li><a href="#">About Molla</a></li>
+                                <li><a href="#">How to shop on Molla</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Contact us</a></li>
+                                <li><a href="#">Log in</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-sm-6 col-lg-3">
                         <div class="widget">
-                                <h4 class="widget-title">Customer Service</h4>
-                                <ul>
-                                    <li><a href="#">Payment Methods</a></li>
-                                    <li><a href="#">Money-back guarantee!</a></li>
-                                    <li><a href="#">Returns</a></li>
-                                    <li><a href="#">Shipping</a></li>
-                                    <li><a href="#">Terms and conditions</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                </ul>
+                            <h4 class="widget-title">Customer Service</h4>
+                            <ul>
+                                <li><a href="#">Payment Methods</a></li>
+                                <li><a href="#">Money-back guarantee!</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#">Shipping</a></li>
+                                <li><a href="#">Terms and conditions</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3">
                         <div class="widget">
                             <h4 class="widget-title">My Account</h4>
                             <ul>
-                            <li><a href="#">Sign In</a></li>
-                            <li><a href="#">View Cart</a></li>
-                            <li><a href="#">My Wishlist</a></li>
-                            <li><a href="#">Track My Order</a></li>
-                            <li><a href="#">Help</a></li>
+                                <li><a href="#">Sign In</a></li>
+                                <li><a href="#">View Cart</a></li>
+                                <li><a href="#">My Wishlist</a></li>
+                                <li><a href="#">Track My Order</a></li>
+                                <li><a href="#">Help</a></li>
                         </div>
                     </div>
                 </div>
@@ -272,4 +274,5 @@
         </div>
     </div>
 </body>
+
 </html>

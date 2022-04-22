@@ -16,8 +16,8 @@
 </head>
 
 <body>
-<?php include "./navbar.php" ?>
-    
+    <?php include('login.php') ?>
+
     <div id="app">
         <header id="heading">
             <!-- Left navbar -->
@@ -578,9 +578,11 @@
     <script>
         const modalContainer = document.querySelector('.js-modal-container');
         const modal = document.querySelector('.js-modal');
+
         function showAuth() {
             modal.classList.add('open');
         }
+
         function hideAuth() {
             modal.classList.remove('open');
         }
