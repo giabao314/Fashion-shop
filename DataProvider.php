@@ -4,19 +4,19 @@
             include ('db.php');
             //Tao ket noi db
             if(!($conn = mysqli_connect($hostName, $userName, $password))) {
-                echo"khong ket noi voi db!";
+                showError($conn);
             }
             if(!(mysqli_select_db($conn, $dbName))) {
-                echo"loi khong chon duoc db";
+                showError($conn);
             }
             if(!(mysqli_query($conn, "set names 'utf8'"))) {
-                echo"loi truy van tieng viet";
+                showError($conn);
             }
-            if(!($result = mysqli_query($sql, $conn))) {
-                echo "loi truy van";
+            if(!($result = mysqli_query($conn, $sql))) {
+                showError($conn);
             }
             if(!(mysqli_close($conn))) {
-                echo "loi dong ket noi";
+                showError($conn);
             }
             return $result;
         }
@@ -25,19 +25,19 @@
             include ('db.php');
             //ket noi db
             if(!($conn = mysqli_connect($hostName, $userName, $password))) {
-                echo"khong ket noi voi db!";
+                showError($conn);
             }
             if(!(mysqli_select_db($conn, $dbName))) {
-                echo"loi khong chon duoc db";
+                showError($conn);
             }
             if(!(mysqli_query($conn, "set names 'utf8'"))) {
-                echo"loi truy van tieng viet";
+                showError($conn);
             }
-            if(!($result = mysqli_query($sql, $conn))) {
-                echo "loi truy van";
+            if(!($result = mysqli_query($conn, $sql))) {
+                showError($conn);
             }
             if(!(mysqli_close($conn))) {
-                echo "loi dong ket noi";
+                showError($conn);
             }
         }
     }

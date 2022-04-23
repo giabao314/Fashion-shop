@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/css/footer.css">
     <title>Fashion shop</title>
 </head>
 
 <body>
-    <?php include('login.php') ?>
+    <?php include('auth.php') ?>
 
     <div id="app">
         <header id="heading">
@@ -465,9 +466,9 @@
 
         </div>
 
-        <div id="footer">
-
-        </div>
+        <?php include('footer.php'); ?>
+        <!-- <div id="footer">
+        </div> -->
     </div>
 
     <?php
@@ -556,27 +557,15 @@
     ?>
 
 
-    <form action="welcome.php" method="get">
+    <!-- <form action="welcome.php" method="get">
         Name: <input type="text" name="fname" /></br>
         Age: <input type="text" name="age" />
         <input type="submit" />
-    </form>
+    </form> -->
 
-    <script>
-        const signUpButton = document.getElementById('signUp');
-        const signInButton = document.getElementById('signIn');
-        const container = document.getElementById('container');
-
-        signUpButton.addEventListener('click', () => {
-            container.classList.add("right-panel-active");
-        });
-
-        signInButton.addEventListener('click', () => {
-            container.classList.remove("right-panel-active");
-        });
-    </script>
     <script>
         const modalContainer = document.querySelector('.js-modal-container');
+        const defaultContainer = document.getElementById('container');
         const modal = document.querySelector('.js-modal');
 
         function showAuth() {
@@ -585,6 +574,7 @@
 
         function hideAuth() {
             modal.classList.remove('open');
+            defaultContainer.classList.remove("right-panel-active");
         }
         document.querySelector('.js-sign-auth').addEventListener('click', showAuth);
         document.querySelector('.js-modal-close').addEventListener('click', hideAuth);
@@ -594,7 +584,6 @@
             event.stopPropagation();
         });
     </script>
-
 
 </body>
 

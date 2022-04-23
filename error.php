@@ -1,5 +1,5 @@
 <?php 
-    function showError( ) {
-        die("Error " . mysqli_errno() . " : " . mysqli_error());
+    function showError($conn) {
+        die("Error " . mysqli_errno($conn) . " : " . mysqli_error($conn));
     }
 ?>
