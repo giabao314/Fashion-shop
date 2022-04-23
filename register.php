@@ -14,7 +14,7 @@ if (mysqli_num_rows($sql) > 0) {
     if (move_uploaded_file($file_loc, $folder . $final_file)) {
         echo(md5($txtPass));
         // $txtPass = $_POST['txtPass'];
-        $query = "INSERT INTO taikhoan(ho, ten, email, matKhau, file ) VALUES ('$txtHo', '$txtTen', '$txtEmail', md5($txtPass), '$final_file')";
+        $query = "INSERT INTO taikhoan(ho, ten, email, matKhau, file ) VALUES ('$txtHo', '$txtTen', '$txtEmail', md5('$txtPass'), '$final_file')";
         $sql = mysqli_query($conn, $query) or die("Không thể truy vấn!");
         header("Location: index.php?status=success");
     } else {
