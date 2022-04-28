@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,14 +15,19 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/auth.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./assets/css/footer.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
     <title>Fashion shop</title>
 </head>
 
 <body>
-    <?php include('auth.php') ?>
+    <?php
+    include('auth.php')
+    ?>
 
     <div id="app">
         <header id="heading">
@@ -51,7 +61,15 @@
                     </div>
                 </form>
                 <div class="auth-btn">
+                    <!-- <a href="auth.php"> -->
                     <button class="right-item auth js-sign-auth">Đăng nhập / Đăng kí</button>
+                    <?php
+                    if (isset($_SESSION['elog'])) {
+                        echo $_SESSION['elog'];
+                    }
+
+                    ?>
+                    <!-- </a> -->
                 </div>
                 <div class="cart-dropdown">
                     <a href="cart.php" class="nav-cart">
@@ -471,91 +489,6 @@
         </div> -->
     </div>
 
-    <?php
-    // $car = ['saab', 'toyota', 'pergeut', 'lexus', 'honda', 'suzuki'];
-    // foreach($car as $key => $value) {
-    //     echo 'car['. $key .']'.'->' .$value. '<br/>';
-    // }
-    // var_dump($car);
-    // echo'for loop'.'<br/>';
-    // for($i = 0;$i <br count($car);$i++) {
-    //     echo $i.'->'.$car[$i].'<br/>';
-    // }
-    // $people = [
-    //     [
-    //         'name' => 'gia bao',
-    //         'age' => 18,
-    //         'address' => 'HCM'
-    //     ],
-    //     [
-    //         'name' => 'Trung Nguyen',
-    //         'age' => 20, 
-    //         'address' => 'Ha Noi'
-    //     ],
-    //     [
-    //         'name' => 'Peter',
-    //         'age' => 23,
-    //         'address' => 'New York'
-    //     ]
-    // ];
-    // foreach($people as $person => $value) {
-    //     echo '<p><b>Khach hang '.$person.':</b></p>';
-    //     echo '<ul>';
-    //     foreach($value as $info) {
-    //         echo '<li>'.$info.'</li>';
-    //     }
-    //     echo '</ul>';
-    // }
-    // $diemthi = [
-    //     'hoang' => [
-    //         'vatly' => 7,
-    //         'hoahoc' => 8,
-    //         'toan' => 9
-    //     ],
-    //     'minh' => [
-    //         'vatly' => 9, 
-    //         'hoahoc' => 6,
-    //         'toan' => 10
-    //     ],
-    //     'trung' => [
-    //         'vatly' => 3,
-    //         'hoahoc' => 8,
-    //         'toan' => 7
-    //     ]
-    // ];
-    // foreach($diemthi as $student => $point) {
-    //     echo "<b>hoc sinh $student:</b></br>";
-    //     foreach($point as $keySub => $valueSub) {
-    //         echo "$keySub: $valueSub";
-    //             echo'<br/>';
-    //     }
-    // }
-
-    // $text = '[{"ten":"Lập trình Web","giangvien":"Tuấn Hoàng"},
-    //           {"ten":"Lập trình Java","giangvien":"Hoàng Sơn"},
-    //           {"ten":"Lập trình HĐT","giangvien":"Minh Tâm"}]';
-    // $arr = json_decode($text, true);
-    // print_r($arr);
-    // echo $arr[1]['ten'];
-    // echo $arr[1]['giangvien'];
-    // echo '<br />-------giá trị của mảng sau khi chuyển từ chuổi json-----<br />';
-    // foreach($arr as $key => $value) {
-    //     foreach($value as $data => $info) {
-    //         echo $data.'=>'.$info.'</br>';
-    //     }
-    // }
-    // function writeName() {
-    //     echo 'chao may!';
-    // }
-    // writeName();
-    // function sum($a, $b) 
-    //     $total = $a + $b;
-    //     return $total;
-    // }
-    // echo sum(4, 5);
-
-    ?>
-
 
     <!-- <form action="welcome.php" method="get">
         Name: <input type="text" name="fname" /></br>
@@ -584,6 +517,9 @@
             event.stopPropagation();
         });
     </script>
+
+
+
 
 </body>
 

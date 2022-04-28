@@ -780,6 +780,7 @@ figure {
 
 #modal.open {
     display: flex;
+    /* flex-wrap: wrap; */
 }
 
 #modal h1 {
