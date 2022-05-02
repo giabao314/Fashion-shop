@@ -1,6 +1,6 @@
 <?php
     session_start();
-    unset($_SESSION["email"]);
-    unset($_SESSION["matKhau"]);
-    header("Location:login.php");
+    unset($_SESSION["elog"]);
+    unset($_SESSION["mklog"]);
+    header("Location:index.php");
 ?>

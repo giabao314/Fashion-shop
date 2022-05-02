@@ -55,11 +55,10 @@
 	margin: 15px 0;
 }
 
-#modal button {
+#modal input[type=button] {
 	border-radius: 20px;
     /* FF4B2B */
 	border: 1px solid #cc9966;
-	background-color: #cc9966;
     filter: brightness(1.1);
 	color: #FFFFFF;
 	font-size: 12px;
@@ -70,19 +69,27 @@
 	transition: transform 80ms ease-in;
 }
 
-#modal .sign-up-container button {
+#modal .sign-up-container input[type=button] {
+	background-color: #ffa040;
+}
+
+#modal .sign-in-container input[type=button] {
+	background-color: #cc9966;
+}
+
+#modal .sign-up-container input[type=button] {
     margin-top: 20px;
 }
 
-#modal button:active {
+#modal input[type=button]:active {
 	transform: scale(0.95);
 }
 
-#modal button:focus {
+#modal input[type=button]:focus {
 	outline: none;
 }
 
-#modal button.ghost {
+#modal input[type=button].ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
@@ -98,7 +105,13 @@
 	text-align: center;
 }
 
-#modal input {
+#modal input[type=button] {
+	width: 35%;
+}
+
+#modal input[type=text], 
+#modal input[type=password], 
+#modal input[type=email] {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
@@ -231,7 +244,7 @@
 }
 
 .modal-container.right-panel-active .modal-close i {
-    color: #cc9966;
+    color: #ffa040;
     transition: all 0.4s ease;
 }
 
@@ -261,6 +274,17 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes modalFadeOut {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateY(-150px);
+	}
 }
 
 @keyframes show {

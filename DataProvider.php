@@ -33,7 +33,7 @@
             if(!(mysqli_query($conn, "set names 'utf8'"))) {
                 showError($conn);
             }
-            if(!($result = mysqli_query($conn, $sql))) {
+            if(!(mysqli_query($conn, $sql))) {
                 showError($conn);
             }
             if(!(mysqli_close($conn))) {

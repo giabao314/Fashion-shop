@@ -1,8 +1,3 @@
-<?php
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +14,8 @@ session_start();
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./assets/css/footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/header.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
     <title>Fashion shop</title>
@@ -26,11 +23,12 @@ session_start();
 
 <body>
     <?php
-    include('auth.php')
+    session_start();
+    include('auth.php');
     ?>
 
     <div id="app">
-        <header id="heading">
+        <header id="heading-index">
             <!-- Left navbar -->
             <div class="navbar-left">
                 <a href="#" class="left-item nav-logo"><img src="./assets/img/logo/molla-logo.png" alt="Fashion-logo" class="nav-logo"></a>
@@ -63,12 +61,21 @@ session_start();
                 <div class="auth-btn">
                     <!-- <a href="auth.php"> -->
                     <button class="right-item auth js-sign-auth">Đăng nhập / Đăng kí</button>
-                    <?php
-                    if (isset($_SESSION['elog'])) {
-                        echo $_SESSION['elog'];
-                    }
-
-                    ?>
+                    <a href="user.php">
+                        <?php
+                        if (isset($_SESSION['elog'])) {
+                        ?>
+                            <a href="logout.php">
+                                Đăng xuất
+                            </a>
+                            <script>
+                                document.querySelector(".js-sign-auth").style.display = "none";
+                            </script>
+                        <?php
+                            echo $_SESSION['elog'];
+                        }
+                        ?>
+                    </a>
                     <!-- </a> -->
                 </div>
                 <div class="cart-dropdown">
@@ -490,11 +497,6 @@ session_start();
     </div>
 
 
-    <!-- <form action="welcome.php" method="get">
-        Name: <input type="text" name="fname" /></br>
-        Age: <input type="text" name="age" />
-        <input type="submit" />
-    </form> -->
 
     <script>
         const modalContainer = document.querySelector('.js-modal-container');
