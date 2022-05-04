@@ -5,7 +5,7 @@
     padding: 20px 0 10px 0;
     width: 100%;
     z-index: 10;
-    background-color: #000;
+    background-color: #333;
 }
 
 .navbar-left {
@@ -173,51 +173,6 @@
     transition: 0.3s;
 }
 
-/* .navbar-right .login,
-.navbar-right .register {
-    border: none;
-    background: transparent;
-    color: #fff;
-    padding-bottom: 6px;
-    font-size: 18px;
-    display: block;
-}
-
-.navbar-right .login {}
-
-.navbar-right .login:after {
-    content: "";
-    position: absolute;
-    height: 28px;
-    width: .5px;
-    background-color: #fff;
-    margin: 1px 0 0 8px;
-}
-
-.navbar-right .login:before,
-.navbar-right .register:after {
-    content: "";
-    position: absolute;
-    height: 1px;
-    background-color: #fff;
-    left: 0;
-    bottom: -0.1px;
-    width: 100%;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s;
-}
-
-.navbar-right .login:hover:before,
-.navbar-right .register:hover:after {
-    transform-origin: left;
-    transform: scaleX(1);
-}
-
-.navbar-right .register {}
-
-.navbar-right .register:after {} */
-
 .search-form {}
 
 .btn-search {}
@@ -256,6 +211,19 @@
 .navbar-right .auth:hover:before {
     transform-origin: left;
     transform: scaleX(1);
+}
+
+.navbar-right .auth-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-right .auth-btn .auth {
+    text-decoration: none;
+}
+
+.navbar-right .auth-btn .auth-user {
+    padding-left: 4px;
 }
 
 .cart-dropdown {

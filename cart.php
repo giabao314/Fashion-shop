@@ -34,8 +34,8 @@
             <div class="slider-show">
                 <div class="slider-content">
                     <div class="slider-title container">
-                        <h1>Shopping Cart</h1>
-                        <span>Shop</span>
+                        <h1>Giỏ Hàng Của Bạn</h1>
+                        <span>Fashion shop</span>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
             <div class="cart">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-9">
                             <table class="table table-cart table-mobile">
                                 <thead>
                                     <tr>
@@ -126,7 +126,7 @@
                                 <table class="table summary-table">
                                     <tbody>
                                         <tr class="summary-subtotal">
-                                            <td>Tổng tiền</td>
+                                            <td>Tạm tính</td>
                                             <td>$80.00</td>
                                         </tr>
                                         <tr class="summary-shipping">
@@ -137,28 +137,40 @@
                                                 <div class="summary-shipping-row form-check">
                                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                                     <label class="form-check-label" for="flexRadioDefault1">
-                                                        Default radio
+                                                        Giao hàng miễn phí
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td>$80.00</td>
+                                            <td class="shipping-price">$0.00</td>
+                                        </tr>
+                                        <tr class="summary-shipping-row">
+                                            <td>
+                                                <div class="summary-shipping-row form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                        Giao hàng tiêu chuẩn
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="shipping-price">$20.00</td>
                                         </tr>
                                         <tr class="summary-shipping-row">
                                             <td>
                                                 <div class="summary-shipping-row form-check">
                                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                                                     <label class="form-check-label" for="flexRadioDefault2">
-                                                        Default checked radio
+                                                        Giao hàng tên lửa
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td>$20.00</td>
+                                            <td class="shipping-price">$50.00</td>
                                         </tr>
                                         <tr class="summary-shipping-estimate">
                                             <td>
-                                                Địa chỉ nhận hàng
-                                                <br>
-                                                <a href="#">Thay đổi địa chỉ</a>
+                                                <div class="shipping-estimate-title">
+                                                    Địa chỉ nhận hàng
+                                                </div>
+                                                <a class="shipping-address" href="#">Thay đổi địa chỉ</a>
                                             </td>
                                         </tr>
                                         <tr class="summary-total">
@@ -188,7 +200,7 @@
 
 
 
-    
+
 
     <script>
         const modalContainer = document.querySelector('.js-modal-container');

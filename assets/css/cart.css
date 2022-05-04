@@ -73,9 +73,24 @@ body {
 
 #content {}
 
-#content .cart {}
+#content .cart {
+    width: 100%;
+    margin: auto;
+}
 
-.row {}
+#content .cart .container {
+    max-width: 100%;
+    width: 90%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .col-lg-9 .col-lg-3 {
     position: relative;
@@ -84,7 +99,10 @@ body {
 
 table {
     display: table;
+    width: 80%;
     text-indent: initial;
+    margin-bottom: 22px;
+    border-collapse: collapse;
     border-spacing: 2px;
     border-color: grey;
 }
@@ -108,7 +126,6 @@ table {
 .table thead th,
 .table td {
     border-top: none;
-    border-bottom: 0.1rem solid #ebebeb;
 }
 
 .table tbody {
@@ -208,13 +225,23 @@ table {
     border: 0.1rem dashed #d7d7d7;
     background-color: #f9f9f9;
     border-radius: 0.3rem;
+    margin-bottom: 32px;
 }
 
 .summary-cart {}
 
-.summary-title {}
+.summary-title {
+    padding: .75rem;
+    border-bottom: 0.1rem solid #ccc;
+}
 
-.summary-table {}
+.summary-table tbody tr{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    border-bottom: 0.1rem solid #ebebeb;
+
+}
 
 .btn-outline-warning {
     color: #cc9966;
@@ -228,25 +255,48 @@ table {
 }
 
 .btn-outline-dark {
-    color: #cc9966;
-    border-color: #cc9966;
+    padding: 10px 0;
+    background-color: #fff;
+    color: #000;
+    border-color: #ebebeb;
 }
 
 .btn-outline-dark:hover {
-    background-color: #cc9966;
-    color: #fff;
-    border-color: #cc9966;
+    background-color: #fafafa;
+    color: #c96;
+    border-color: #ebebeb;
 }
 
 .summary-subtotal {}
 
-.summary-shipping {}
+.summary-shipping {
+    font-weight: 600;
+}
 
-.summary-shipping-row {}
+.col-log-4 .summary .summary-shipping-row,
+.col-log-4 .summary .summary-subtotal,
+.col-log-4 .summary .summary-total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-table .summary-shipping-row .shipping-price {
+    text-align: right;
+}
 
 .summary-shipping-row .form-check {}
 
+.summary-shipping-row .form-check .form-check-label {
+    /* padding: -6px 4px; */
+}
+
 .summary-shipping-estimate {}
+
+.summary-shipping-estimate .shipping-address {
+    display: block;
+    margin-top: 8px;
+}
+
 
 .summary-shipping-estimate a {
     color: #cc9966;

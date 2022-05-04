@@ -35,12 +35,14 @@ else if ($_POST['type'] == 2)
     $email1 = $_POST['elog'];
     $pass1 = $_POST['plog'];
     $check = mysqli_query($conn, "SELECT * FROM taikhoan WHERE email='$email1' AND password=md5($pass1)");
-    // 
     if (mysqli_num_rows($check) > 0) {
         // echo ("$email1 $matkhau1");
         // echo('alo');
-        $_SESSION['elog'] = $email1;
-        $_SESSION['plog'] = $pass1;
+        $row_signIn = mysqli_fetch_array($check);
+        $_SESSION['elog'] = $row_signIn['email'];
+        // $_SESSION['plog'] = $row_signIn['password'];
+        $_SESSION['signIn_name'] = $row_signIn['tenTK'];
+        $_SESSION['signIn_id'] = $row_signIn['idTK'];
         echo json_encode(array("statusCode" => 200));
     } else {
         echo json_encode(array("statusCode" => 201));

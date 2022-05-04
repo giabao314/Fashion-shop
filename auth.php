@@ -140,7 +140,7 @@
             }
         });
         $('#ajaxlogin').on('click', function() {
-            var email_log = $("input[name=email_log]").val(email);
+            var email_log = $("input[name=email_log]").val();
             var pass_log = $("input[name=pass_log]").val();
             if (email_log != "" && pass_log != "") {
                 $.ajax({

@@ -24,6 +24,22 @@ body {
     position: relative;
 }
 
+/* Heading animation */
+
+#heading {
+    top: -68px;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0 10px 0;
+    width: 100%;
+    z-index: 10;
+    transition: top .5s;    
+    position: fixed;
+    background-color: #000;
+}
+
+/* End heading animation */
+
 #heading-index {
     position: absolute;
     display: flex;
@@ -248,7 +264,11 @@ body {
 }
 
 #heading-index .auth-btn {
-    display: flex;
+    /* display: flex; */
+}
+
+#heading-index .auth-btn a{
+    text-decoration: none;
 }
 
 #heading-index .cart-dropdown {
@@ -413,6 +433,7 @@ body {
 #content .content-item .item-container .heading-title .title-desc {
     color: #777;
     font-size: 1rem;  
+    text-align: center;
     line-height: 1.4;
     margin-bottom: 0;
     font-weight: 350;   
@@ -468,15 +489,14 @@ body {
 #content .content-item .item-container 
 .product-list .col-product .product-header .product-img {
     display: block;
-    width: 216px;
-    height: 294px;
+    width: 244px;
+    height: 324px;
 }
 
 #content .product-action-vertical {
     display: flex;
     flex-direction: column;
     position: absolute;
-    margin-right: 20px;
     right: 2rem;
     top: 2rem;
     background-color: transparent;
@@ -585,12 +605,12 @@ figure {
     left: 0;
     right: 0;
     bottom: 0;
-    width: 216px;
+    width: 244px;
     display: flex;
     margin-left: 10px;
     justify-content: center;
     align-items: center;
-    background-color: #cc9966;
+    background-color: #fff;
     transition: all .35s ease;
     opacity: 0;
     visibility: hidden;
@@ -601,7 +621,7 @@ figure {
 #content .product-header:hover .product-action {
     visibility: visible;
     opacity: 1;
-    transform: translateY(-4px);
+    transform: translateY(24px);
 }
 
 .product-header .product-action .btn-product-cart {
@@ -613,8 +633,8 @@ figure {
     line-height: 1;
     transition: all .35s ease;
     flex-grow: 1;
-    color: #fff;
-    background-color: #cc9966;
+    color: #000;
+    background-color: #fff;
     padding: 12px 0;
     text-transform: uppercase;
 }
@@ -623,6 +643,10 @@ figure {
     background-color: #cc9966;
     color: #fff;
     text-decoration: none;
+}
+
+.product-action:hover {
+    background-color: #cc9966;
 }
 
 .product-content {

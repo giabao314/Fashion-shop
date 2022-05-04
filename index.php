@@ -28,6 +28,10 @@
     ?>
 
     <div id="app">
+        <?php
+        // session_start();
+        include('header.php');
+        ?>
         <header id="heading-index">
             <!-- Left navbar -->
             <div class="navbar-left">
@@ -35,7 +39,7 @@
                 <a href="#" class="left-item nav-home">TRANG CHỦ</a>
                 <div class="subnav">
                     <div class="subnav-separate"></div>
-                    <a href="#" class="nav-product">
+                    <a href="product.php" class="nav-product">
                         SẢN PHẨM
                         <i class='bx bx-chevron-down'></i></i>
                     </a>
@@ -60,26 +64,33 @@
                 </form>
                 <div class="auth-btn">
                     <!-- <a href="auth.php"> -->
-                    <button class="right-item auth js-sign-auth">Đăng nhập / Đăng kí</button>
+                    <button id="auth-index" class="right-item auth js-sign-auth">Đăng nhập / Đăng kí</button>
                     <a href="user.php">
                         <?php
                         if (isset($_SESSION['elog'])) {
                         ?>
-                            <a href="logout.php">
+
+                            <script>
+                                authBtn = document.getElementById("auth-index").style.display="none";
+                                console.log(authBtn);
+                                authBtn.style.display = "none";
+                            </script>
+                            <a class="right-item auth" href="logout.php">
                                 Đăng xuất
                             </a>
-                            <script>
-                                document.querySelector(".js-sign-auth").style.display = "none";
-                            </script>
+                            <a class="right-item auth" href="user.php">
+                                <?php
+                                echo "Chào " . $_SESSION['signIn_name'];
+                                ?>
+                            </a>
                         <?php
-                            echo $_SESSION['elog'];
                         }
                         ?>
                     </a>
                     <!-- </a> -->
                 </div>
                 <div class="cart-dropdown">
-                    <a href="cart.php" class="nav-cart">
+                    <a class="nav-cart" href="cart.php?quanly=xemdonhang&khachhang=<?php echo $_SESSION['signIn_id'] ?>">
                         <i class='bx bx-cart-alt bx-tada cart-item'></i>
                         <span class="nav-product-count">5</span>
                         <!-- <div class="clear"></div> -->
@@ -89,6 +100,7 @@
             </div>
         </header>
 
+        <!-- BEGIN SLIDER -->
         <div id="slider">
             <div class="slider-show">
                 <div class="slider-content">
@@ -105,8 +117,10 @@
                 </div>
             </div>
         </div>
+        <!-- END SLIDER -->
 
         <div id="content">
+            <!-- BEGIN ITEM INDEX 1 -->
             <div class="content-item item-1">
                 <div class="row item-container">
                     <div class="col-half product-item">
@@ -232,7 +246,10 @@
                     </div>
                 </div>
             </div>
+            <!-- END ITEN INDEX 1 -->
 
+
+            <!-- ITEM INDEX 2 -->
             <div class="content-item item-2">
                 <div class="row item-container">
                     <div class="col-half product-item">
@@ -358,7 +375,9 @@
                     </div>
                 </div>
             </div>
+            <!-- END ITEM INDEX 2 -->
 
+            <!-- BEGIN ITEM INDEX 3 -->
             <div class="content-item item-3">
                 <div class="row item-container">
                     <div class="col-half product-item">
@@ -484,6 +503,7 @@
                     </div>
                 </div>
             </div>
+            <!-- END ITEM INDEX 3 -->
 
         </div>
 
@@ -492,16 +512,16 @@
         </div>
 
         <?php include('footer.php'); ?>
-        <!-- <div id="footer">
-        </div> -->
     </div>
 
 
 
+
+
     <script>
-        const modalContainer = document.querySelector('.js-modal-container');
-        const defaultContainer = document.getElementById('container');
-        const modal = document.querySelector('.js-modal');
+        // const modalContainer = document.querySelector('.js-modal-container');
+        // const defaultContainer = document.getElementById('container');
+        // const modal = document.querySelector('.js-modal');
 
         function showAuth() {
             modal.classList.add('open');
@@ -511,7 +531,7 @@
             modal.classList.remove('open');
             defaultContainer.classList.remove("right-panel-active");
         }
-        document.querySelector('.js-sign-auth').addEventListener('click', showAuth);
+        document.getElementById("auth-index").addEventListener('click', showAuth);
         document.querySelector('.js-modal-close').addEventListener('click', hideAuth);
         modal.addEventListener('click', hideAuth);
 
