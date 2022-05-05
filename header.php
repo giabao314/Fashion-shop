@@ -83,7 +83,7 @@
     modalContainer.addEventListener('click', (event) => {
         event.stopPropagation();
     });
-</script>   
+</script>
 
 <script>
     window.onscroll = function() {
@@ -96,5 +96,6 @@
         } else {
             document.getElementById("heading").style.top = "-68px";
         }
+        
     }
 </script>
