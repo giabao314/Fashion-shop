@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./assets/css/footer.css">
     <link rel="stylesheet" href="./assets/css/header.css">
     <link rel="stylesheet" href="./assets/css/auth.css">
+    <!-- <link rel="stylesheet" href="./assets/css/styleClone.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- <script src="./script.js"></script> -->
@@ -41,10 +42,108 @@
             </div>
         </div>
     </div>
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="./index.php">Trang Chủ</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="./product.php">Sản Phẩm</a>
+                </li>
+            </ol>
+        </div>
+    </nav>
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <div class="list-group">
+                <div class="widget widget-clean">
+                    <label>Bộ lọc: </label>
+                    <a href="./product.php" class="sidebar-filter-clean">Xóa bộ lọc</a>
+                </div>
+                <div class="widget widget-collapsible">
+                    <h3 class="widget-title">
+                        <a data-toggle="collapse" href="#widget-collapse" role="button" aria-expanded="false" aria-controls="widget-collapse">Danh mục sản phẩm
+                            <i class='bx bx-chevron-down'></i>
+                        </a>
+                    </h3>
+                    <div id="widget-collapse" class="category collapse show">
+                        <a href="./product.php/?category=quan" class="filter-item">
+                            <div class="filter-name">
+                                Quần
+                            </div>
+                            <div class="filter-query">
+                                <span class="item-count">10</span>
+                            </div>
+                        </a>
+
+                        <a href="./product.php/?category=ao" class="filter-item">
+                            <div class="filter-name">
+                                Áo
+                            </div>
+                            <div class="filter-query">
+                                <span class="item-count">10</span>
+                            </div>
+                        </a>
+
+                        <a href="./product.php/?category=phukien" class="filter-item">
+                            <div class="filter-name">
+                                Phụ Kiện
+                            </div>
+                            <div class="filter-query">
+                                <span class="item-count">10</span>
+                            </div>
+                        </a>
+
+                        <a href="./product.php/?category=khac" class="filter-item">
+                            <div class="filter-name">
+                                Khác
+                            </div>
+                            <div class="filter-query">
+                                <span class="item-count">10</span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="widget widget-collapsible">
+                    <h3 class="widget-title">
+                        <a data-toggle="collapse" href="#widget-collapse-2" role="button" aria-expanded="false" aria-controls="widget-collapse">Giá
+                            <i class='bx bx-chevron-down'></i>
+                        </a>
+                    </h3>
+                    <div id="widget-collapse-2" class="category collapse show">
+                        <div class="price-slider">
+                            <div class="-price-slider-wrapper">
+                                <div class="values">
+                                    <div class="range-name">Khoảng giá</div>
+                                    <div class="price-range">
+                                        <span id="range1">
+                                            0$
+                                        </span>
+                                        <span> &dash; </span>
+                                        <span id="range2">
+                                            100$
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="price-slider-container">
+                                    <div class="slider-track"></div>
+                                    <input type="range" min="0" max="100" value="0" id="slider-1" oninput="slideOne()">
+                                    <input type="range" min="0" max="100" value="100" id="slider-2" oninput="slideTwo()">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- <div class="widget widget-collapsible">
+
+                </div>
+                <div class="widget widget-collapsible">
+
+                </div> -->
+                <!-- <div class="list-group">
                     <button type="button" class="list-group-item list-group-item-action" aria-current="true">
                         Quần</button>
                     <button type="button" class="list-group-item list-group-item-action">Áo</button>
@@ -60,241 +159,292 @@
                     <button type="button" class="list-group-item list-group-item-action">Váy</button>
                     <button type="button" class="list-group-item list-group-item-action">Giày</button>
                     <button type="button" class="list-group-item list-group-item-action">Phụ kiện</button>
-                </div>
-                <div class="box">
-
-                    <h3>Khoảng Giá</h3>
-                    <div class="values">
-                        <div>$<span id="first"></span></div> - <div>$<span id="second"></span></div>
-                    </div>
-                    <!-- <small>
-                        Current Range:
-                        <div>$<span id="third"></span></div>
-                    </small> -->
-
-                    <div class="slider" data-value-0="#first" data-value-1="#second" data-range="#third"></div>
-
-                </div>
+                </div> -->
             </div>
             <div class="col-lg-9">
                 <div class="row product-item-content">
-                    <div class="col-s product-list">
-                        <div class="product-cover">
-                            <div class="col-product">
-                                <figure class="product-header">
-                                    <a href="product.php">
-                                        <img src="./assets/img/product/product-1.jpg" alt="Product image" class="product-img">
-                                    </a>
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expand">
-                                            <i class='bx bx-heart'></i>
-                                            <span>Yêu thích</span>
-                                        </a>
-                                        <a href="#" class="btn-product-icon btn-quickview btn-expand">
-                                            <i class='bx bxs-binoculars'></i>
-                                            <span>Xem nhanh</span>
-                                        </a>
-                                        <a href="#" class="btn-product-icon btn-compare btn-expand">
-                                            <i class='bx bx-shuffle'></i>
-                                            <span>So sánh</span>
-                                        </a>
-                                    </div>
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product-cart">
-                                            <span>Thêm vào giỏ</span>
-                                        </a>
-                                    </div>
-                                </figure>
-                                <div class="product-content">
-                                    <h3 class="product-title">
-                                        <a href="">Suede Moto Jacket</a>
-                                    </h3>
-                                    <div class="product-price">
-                                        <span>$1298</span>
-                                    </div>
-                                </div>
+                    <div class="col-product">
+                        <figure class="product-header">
+                            <a href="Productitem.php">
+                                <img src="./assets/img/slider/slider-1.jpg" alt="Product image" class="product-img">
+                            </a>
+                            <div class="product-action-vertical">
+                                <a href="#" class="btn-product-icon btn-wishlist btn-expand">
+                                    <i class='bx bx-heart'></i>
+                                    <span>Yêu thích</span>
+                                </a>
+                                <a href="#" class="btn-product-icon btn-quickview btn-expand">
+                                    <i class='bx bxs-binoculars'></i>
+                                    <span>Xem nhanh</span>
+                                </a>
+                                <a href="#" class="btn-product-icon btn-compare btn-expand">
+                                    <i class='bx bx-shuffle'></i>
+                                    <span>So sánh</span>
+                                </a>
                             </div>
-                            <div class="col-product">
-                                <figure class="product-header">
-                                    <a href="product.php">
-                                        <img src="./assets/img/product/product-1.jpg" alt="Product image" class="product-img">
-                                    </a>
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expand">
-                                            <i class='bx bx-heart'></i>
-                                            <span>Yêu thích</span>
-                                        </a>
-                                        <a href="#" class="btn-product-icon btn-quickview btn-expand">
-                                            <i class='bx bxs-binoculars'></i>
-                                            <span>Xem nhanh</span>
-                                        </a>
-                                        <a href="#" class="btn-product-icon btn-compare btn-expand">
-                                            <i class='bx bx-shuffle'></i>
-                                            <span>So sánh</span>
-                                        </a>
-                                    </div>
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product-cart">
-                                            <span>Thêm vào giỏ</span>
-                                        </a>
-                                    </div>
-                                </figure>
-                                <div class="product-content">
-                                    <h3 class="product-title">
-                                        <a href="">Suede Moto Jacket</a>
-                                    </h3>
-                                    <div class="product-price">
-                                        <span>$1298</span>
-                                    </div>
-                                </div>
+                            <div class="product-action">
+                                <a href="#" class="btn-product-cart">
+                                    <i class='bx bx-cart-add'></i>
+                                    <span> Thêm vào giỏ</span>
+                                </a>
                             </div>
-                            <div class="col-product">
-                                <figure class="product-header">
-                                    <a href="product.php">
-                                        <img src="./assets/img/product/product-1.jpg" alt="Product image" class="product-img">
-                                    </a>
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expand">
-                                            <i class='bx bx-heart'></i>
-                                            <span>Yêu thích</span>
-                                        </a>
-                                        <a href="#" class="btn-product-icon btn-quickview btn-expand">
-                                            <i class='bx bxs-binoculars'></i>
-                                            <span>Xem nhanh</span>
-                                        </a>
-                                        <a href="#" class="btn-product-icon btn-compare btn-expand">
-                                            <i class='bx bx-shuffle'></i>
-                                            <span>So sánh</span>
-                                        </a>
-                                    </div>
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product-cart">
-                                            <span>Thêm vào giỏ</span>
-                                        </a>
-                                    </div>
-                                </figure>
-                                <div class="product-content">
-                                    <h3 class="product-title">
-                                        <a href="">Suede Moto Jacket</a>
-                                    </h3>
-                                    <div class="product-price">
-                                        <span>$1298</span>
-                                    </div>
-                                </div>
+                        </figure>
+                        <div class="product-content">
+                            <div class="product-cat">
+                                <a href="./product/?category=woman">woman</a>
                             </div>
+                            <h3 class="product-title">
+                                <a href="">Suede Moto Jacket</a>
+                            </h3>
+                            <div class="product-price">
+                                <span>$1298</span>
+                            </div>
+                            <!-- <div class="product-rating-container">
+
+                            </div>
+                            <div class="product-nav-color">
+
+                            </div> -->
                         </div>
                     </div>
-                </div>
-                <div class="row product-item-content">
-                    <div class="col-s product-list">
-                        <div class="product-cover">
-                            <div class="col-product">
-                                <figure class="product-header">
-                                    <a href="product.php">
-                                        <img src="./assets/img/product/product-1.jpg" alt="Product image" class="product-img">
-                                    </a>
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expand">
-                                            <i class='bx bx-heart'></i>
-                                            <span>Yêu thích</span>
-                                        </a>
-                                        <a href="#" class="btn-product-icon btn-quickview btn-expand">
-                                            <i class='bx bxs-binoculars'></i>
-                                            <span>Xem nhanh</span>
-                                        </a>
-                                        <a href="#" class="btn-product-icon btn-compare btn-expand">
-                                            <i class='bx bx-shuffle'></i>
-                                            <span>So sánh</span>
-                                        </a>
-                                    </div>
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product-cart">
-                                            <span>Thêm vào giỏ</span>
-                                        </a>
-                                    </div>
-                                </figure>
-                                <div class="product-content">
-                                    <h3 class="product-title">
-                                        <a href="">Suede Moto Jacket</a>
-                                    </h3>
-                                    <div class="product-price">
-                                        <span>$1298</span>
-                                    </div>
-                                </div>
+
+                    <div class="col-product">
+                        <figure class="product-header">
+                            <a href="product.php">
+                                <img src="./assets/img/slider/slider-1.jpg" alt="Product image" class="product-img">
+                            </a>
+                            <div class="product-action-vertical">
+                                <a href="#" class="btn-product-icon btn-wishlist btn-expand">
+                                    <i class='bx bx-heart'></i>
+                                    <span>Yêu thích</span>
+                                </a>
+                                <a href="#" class="btn-product-icon btn-quickview btn-expand">
+                                    <i class='bx bxs-binoculars'></i>
+                                    <span>Xem nhanh</span>
+                                </a>
+                                <a href="#" class="btn-product-icon btn-compare btn-expand">
+                                    <i class='bx bx-shuffle'></i>
+                                    <span>So sánh</span>
+                                </a>
                             </div>
-                            <div class="col-product">
-                                <figure class="product-header">
-                                    <a href="product.php">
-                                        <img src="./assets/img/product/product-1.jpg" alt="Product image" class="product-img">
-                                    </a>
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expand">
-                                            <i class='bx bx-heart'></i>
-                                            <span>Yêu thích</span>
-                                        </a>
-                                        <a href="#" class="btn-product-icon btn-quickview btn-expand">
-                                            <i class='bx bxs-binoculars'></i>
-                                            <span>Xem nhanh</span>
-                                        </a>
-                                        <a href="#" class="btn-product-icon btn-compare btn-expand">
-                                            <i class='bx bx-shuffle'></i>
-                                            <span>So sánh</span>
-                                        </a>
-                                    </div>
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product-cart">
-                                            <span>Thêm vào giỏ</span>
-                                        </a>
-                                    </div>
-                                </figure>
-                                <div class="product-content">
-                                    <h3 class="product-title">
-                                        <a href="">Suede Moto Jacket</a>
-                                    </h3>
-                                    <div class="product-price">
-                                        <span>$1298</span>
-                                    </div>
-                                </div>
+                            <div class="product-action">
+                                <a href="#" class="btn-product-cart">
+                                    <i class='bx bx-cart-add'></i>
+                                    <span> Thêm vào giỏ</span>
+                                </a>
                             </div>
-                            <div class="col-product">
-                                <figure class="product-header">
-                                    <a href="product.php">
-                                        <img src="./assets/img/product/product-1.jpg" alt="Product image" class="product-img">
-                                    </a>
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-wishlist btn-expand">
-                                            <i class='bx bx-heart'></i>
-                                            <span>Yêu thích</span>
-                                        </a>
-                                        <a href="#" class="btn-product-icon btn-quickview btn-expand">
-                                            <i class='bx bxs-binoculars'></i>
-                                            <span>Xem nhanh</span>
-                                        </a>
-                                        <a href="#" class="btn-product-icon btn-compare btn-expand">
-                                            <i class='bx bx-shuffle'></i>
-                                            <span>So sánh</span>
-                                        </a>
-                                    </div>
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product-cart">
-                                            <span>Thêm vào giỏ</span>
-                                        </a>
-                                    </div>
-                                </figure>
-                                <div class="product-content">
-                                    <h3 class="product-title">
-                                        <a href="">Suede Moto Jacket</a>
-                                    </h3>
-                                    <div class="product-price">
-                                        <span>$1298</span>
-                                    </div>
-                                </div>
+                        </figure>
+                        <div class="product-content">
+                            <div class="product-cat">
+                                <a href="./product/?category=woman">woman</a>
                             </div>
+                            <h3 class="product-title">
+                                <a href="">Suede Moto Jacket</a>
+                            </h3>
+                            <div class="product-price">
+                                <span>$1298</span>
+                            </div>
+                            <!-- <div class="product-rating-container">
+
+                            </div>
+                            <div class="product-nav-color">
+
+                            </div> -->
                         </div>
                     </div>
-                </div>
+
+                    <div class="col-product">
+                        <figure class="product-header">
+                            <a href="product.php">
+                                <img src="./assets/img/slider/slider-1.jpg" alt="Product image" class="product-img">
+                            </a>
+                            <div class="product-action-vertical">
+                                <a href="#" class="btn-product-icon btn-wishlist btn-expand">
+                                    <i class='bx bx-heart'></i>
+                                    <span>Yêu thích</span>
+                                </a>
+                                <a href="#" class="btn-product-icon btn-quickview btn-expand">
+                                    <i class='bx bxs-binoculars'></i>
+                                    <span>Xem nhanh</span>
+                                </a>
+                                <a href="#" class="btn-product-icon btn-compare btn-expand">
+                                    <i class='bx bx-shuffle'></i>
+                                    <span>So sánh</span>
+                                </a>
+                            </div>
+                            <div class="product-action">
+                                <a href="#" class="btn-product-cart">
+                                    <i class='bx bx-cart-add'></i>
+                                    <span> Thêm vào giỏ</span>
+                                </a>
+                            </div>
+                        </figure>
+                        <div class="product-content">
+                            <div class="product-cat">
+                                <a href="./product/?category=woman">woman</a>
+                            </div>
+                            <h3 class="product-title">
+                                <a href="">Suede Moto Jacket</a>
+                            </h3>
+                            <div class="product-price">
+                                <span>$1298</span>
+                            </div>
+                            <!-- <div class="product-rating-container">
+
+                            </div>
+                            <div class="product-nav-color">
+
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="col-product">
+                        <figure class="product-header">
+                            <a href="product.php">
+                                <img src="./assets/img/slider/slider-1.jpg" alt="Product image" class="product-img">
+                            </a>
+                            <div class="product-action-vertical">
+                                <a href="#" class="btn-product-icon btn-wishlist btn-expand">
+                                    <i class='bx bx-heart'></i>
+                                    <span>Yêu thích</span>
+                                </a>
+                                <a href="#" class="btn-product-icon btn-quickview btn-expand">
+                                    <i class='bx bxs-binoculars'></i>
+                                    <span>Xem nhanh</span>
+                                </a>
+                                <a href="#" class="btn-product-icon btn-compare btn-expand">
+                                    <i class='bx bx-shuffle'></i>
+                                    <span>So sánh</span>
+                                </a>
+                            </div>
+                            <div class="product-action">
+                                <a href="#" class="btn-product-cart">
+                                    <i class='bx bx-cart-add'></i>
+                                    <span> Thêm vào giỏ</span>
+                                </a>
+                            </div>
+                        </figure>
+                        <div class="product-content">
+                            <div class="product-cat">
+                                <a href="./product/?category=woman">woman</a>
+                            </div>
+                            <h3 class="product-title">
+                                <a href="">Suede Moto Jacket</a>
+                            </h3>
+                            <div class="product-price">
+                                <span>$1298</span>
+                            </div>
+                            <!-- <div class="product-rating-container">
+
+                            </div>
+                            <div class="product-nav-color">
+
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="col-product">
+                        <figure class="product-header">
+                            <a href="product.php">
+                                <img src="./assets/img/slider/slider-1.jpg" alt="Product image" class="product-img">
+                            </a>
+                            <div class="product-action-vertical">
+                                <a href="#" class="btn-product-icon btn-wishlist btn-expand">
+                                    <i class='bx bx-heart'></i>
+                                    <span>Yêu thích</span>
+                                </a>
+                                <a href="#" class="btn-product-icon btn-quickview btn-expand">
+                                    <i class='bx bxs-binoculars'></i>
+                                    <span>Xem nhanh</span>
+                                </a>
+                                <a href="#" class="btn-product-icon btn-compare btn-expand">
+                                    <i class='bx bx-shuffle'></i>
+                                    <span>So sánh</span>
+                                </a>
+                            </div>
+                            <div class="product-action">
+                                <a href="#" class="btn-product-cart">
+                                    <i class='bx bx-cart-add'></i>
+                                    <span> Thêm vào giỏ</span>
+                                </a>
+                            </div>
+                        </figure>
+                        <div class="product-content">
+                            <div class="product-cat">
+                                <a href="./product/?category=woman">woman</a>
+                            </div>
+                            <h3 class="product-title">
+                                <a href="">Suede Moto Jacket</a>
+                            </h3>
+                            <div class="product-price">
+                                <span>$1298</span>
+                            </div>
+                            <!-- <div class="product-rating-container">
+
+                            </div>
+                            <div class="product-nav-color">
+
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="col-product">
+                        <figure class="product-header">
+                            <a href="product.php">
+                                <img src="./assets/img/slider/slider-1.jpg" alt="Product image" class="product-img">
+                            </a>
+                            <div class="product-action-vertical">
+                                <a href="#" class="btn-product-icon btn-wishlist btn-expand">
+                                    <i class='bx bx-heart'></i>
+                                    <span>Yêu thích</span>
+                                </a>
+                                <a href="#" class="btn-product-icon btn-quickview btn-expand">
+                                    <i class='bx bxs-binoculars'></i>
+                                    <span>Xem nhanh</span>
+                                </a>
+                                <a href="#" class="btn-product-icon btn-compare btn-expand">
+                                    <i class='bx bx-shuffle'></i>
+                                    <span>So sánh</span>
+                                </a>
+                            </div>
+                            <div class="product-action">
+                                <a href="#" class="btn-product-cart">
+                                    <i class='bx bx-cart-add'></i>
+                                    <span> Thêm vào giỏ</span>
+                                </a>
+                            </div>
+                        </figure>
+                        <div class="product-content">
+                            <div class="product-cat">
+                                <a href="./product/?category=woman">woman</a>
+                            </div>
+                            <h3 class="product-title">
+                                <a href="">Suede Moto Jacket</a>
+                            </h3>
+                            <div class="product-price">
+                                <span>$1298</span>
+                            </div>
+                            <!-- <div class="product-rating-container">
+
+                            </div>
+                            <div class="product-nav-color">
+
+                            </div> -->
+                        </div>
+                    </div>
+
+                    
+                
             </div>
         </div>
+        <ul class="pagination">
+            <li class="page-item"></li>
+            <li class="page-item"></li>
+            <li class="page-item"></li>
+            <li class="page-item"></li>
+            <li class="page-item-total"></li>
+            <li class="page-item"></li>
+        </ul>
     </div>
     <?php
     include('footer.php');
@@ -324,6 +474,43 @@
         modalContainer.addEventListener('click', (event) => {
             event.stopPropagation();
         });
+    </script>
+
+    <script>
+        window.onload = function() {
+            slideOne();
+            slideTwo();
+        }
+
+        let sliderOne = document.getElementById("slider-1");
+        let sliderTwo = document.getElementById("slider-2");
+        let displayValOne = document.getElementById("range1");
+        let displayValTwo = document.getElementById("range2");
+        let minGap = 0;
+        let sliderTrack = document.querySelector(".slider-track");
+        let sliderMaxValue = document.getElementById("slider-1").max;
+
+        function slideOne() {
+            if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+                sliderOne.value = parseInt(sliderTwo.value) - minGap;
+            }
+            displayValOne.textContent = sliderOne.value + '$';
+            fillColor();
+        }
+
+        function slideTwo() {
+            if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+                sliderTwo.value = parseInt(sliderOne.value) + minGap;
+            }
+            displayValTwo.textContent = sliderTwo.value + '$';
+            fillColor();
+        }
+
+        function fillColor() {
+            percent1 = (sliderOne.value / sliderMaxValue) * 100;
+            percent2 = (sliderTwo.value / sliderMaxValue) * 100;
+            sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #cc9966 ${percent1}% , #cc9966 ${percent2}%, #dadae5 ${percent2}%)`;
+        }
     </script>
 
     <script>

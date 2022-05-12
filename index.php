@@ -44,8 +44,10 @@
                         <i class='bx bx-chevron-down'></i></i>
                     </a>
                     <div class="subnav-menu-left">
-                        <a class="subnav-item" href="#">THỜI TRANG NAM</a>
-                        <a class="subnav-item" href="#">THỜI TRANG NỮ</a>
+                        <a class="subnav-item" href="./product.php">QUẦN</a>
+                        <a class="subnav-item" href="./product.php">ÁO</a>
+                        <a class="subnav-item" href="./product.php">PHỤ KIỆN</a>
+                        <a class="subnav-item" href="./product.php">KHÁC</a>
                     </div>
                 </div>
                 <a href="#" class="left-item nav-about">VỀ CHÚNG TÔI</a>

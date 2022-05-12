@@ -1,0 +1,189 @@
+body{
+    margin: 0;
+}
+
+.container-fuild{
+    margin: 24px 0;
+    padding: 0 16px;
+}
+
+.row{
+    /* display: flex;
+    justify-content: space-between; */
+    margin: auto;
+}
+.col-md-6{
+    
+}
+
+.product-gallery{
+
+}
+
+.col-md-3{
+    /* background-color: black; */
+}
+
+.row .m-1{
+    
+}
+
+.col-md-3 img{
+    height: 96px;
+    width: 100px;
+}
+
+.col-md-9{
+    
+}
+
+.col-md-9 img{
+    height: 400px;
+    width: 400px;
+}
+
+.product-details{
+    
+}
+
+.product-title{
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.ratings-container{
+
+}
+
+.product-price{
+    display: flex;
+    font-size: 26px;
+}
+
+.product-price {
+    color: #c96;
+}
+
+.product-content{
+    font-size: 1.4rem;
+}
+
+.product-filter-color{
+    display: flex;
+}
+
+.color-item{
+    display: flex;
+    margin-left: 24px;
+    margin-top: 4px; 
+    justify-content: space-around;
+}
+
+.product-filter-color .color-item a{
+    height: 16px;
+    width: 16px;
+    display: block;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.color-item :active .color-item a:hover{
+
+}
+
+.product-filter label{
+    /* margin-top: 6px;  */
+}
+
+.product-filter-size{
+    display: flex;
+    
+}
+
+.product-filter-size label{
+
+}
+
+.size-item{
+    
+}
+
+.size-item select{
+    display: block;
+    margin-left: 24px;
+    width: 200px;
+}
+
+.product-filter-qty{
+    display: flex;
+}
+
+.product-filter-qty input{
+    display: flex;
+    width: 200px;   
+    margin-left: 24px;
+}
+
+.product-cart{
+    display: flex;
+}
+
+.product-cart .btn-outline-warning {
+    color: #cc9966;
+    border-color: #cc9966;
+    height: 40px;
+    width: 20px;
+}
+
+.product-cart .btn-outline-warning:hover {
+    background-color: #cc9966;
+    color: #fff;
+    border-color: #cc9966;
+}
+
+.product-cart button span{
+    font-size: 18px;
+}
+
+.product-cart button i{
+    font-size: 24px;
+}
+
+.product-footer{
+
+}
+
+.cat a{
+    margin-left: 10px;
+}
+
+.product-footer span a{
+    color: black;
+}
+
+.social a{
+    margin-left: 10px;
+}
+
+.social-label{
+
+}
+
+.social-label a{
+    margin-left: 24px;
+}
+
+.social-icon {
+    color: #777;
+    align-items: center;
+}
+
+.social-icon i{
+    font-size: 20px;
+    /* background-color: #c96; */
+    border-radius: 28px;
+    margin-top: 5px;    
+    border: #777 solid 0.5px;
+    box-sizing: border-box;
+    border-color: #777;
+}

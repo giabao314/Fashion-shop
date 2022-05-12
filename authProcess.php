@@ -28,7 +28,7 @@ if ($_POST['type'] == 1)
         }
     }
     mysqli_close($conn);
-} 
+}
 
 else if ($_POST['type'] == 2) 
 {
