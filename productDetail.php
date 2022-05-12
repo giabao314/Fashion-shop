@@ -13,7 +13,7 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./assets/css/footer.css">
     <link rel="stylesheet" href="./assets/css/header.css">
-    <link rel="stylesheet" href="./assets/css/Productitem.css">
+    <link rel="stylesheet" href="./assets/css/productDetail.css">
 
     <title>Document</title>
 </head>
