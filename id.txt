@@ -1,5 +1,0 @@
-1 - áo
-2 - quần
-3 - váy
-4 - giày, dép
-5 - phụ kiện/khác
