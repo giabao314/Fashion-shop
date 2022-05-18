@@ -596,7 +596,7 @@ figure {
     left: 0;
     right: 0;
     bottom: 0;
-    width: 93.36%;
+    width: 92.86%;
     display: flex;
     margin-left: 10px;
     justify-content: center;
@@ -696,6 +696,7 @@ figure {
 }
 
 .product-title:hover a{
+    text-decoration: none;
     color: #cc9966;
     transition: all .5s ease;
 }

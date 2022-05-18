@@ -1,0 +1,74 @@
+.container-fuild{
+
+}
+
+.row{
+
+}
+
+.col-md-2{
+    background-color: #36454F;
+}
+
+.row .m-0{
+    display: flex;
+}
+
+.row .m-0 a{
+    color: white;
+ }
+
+.row .m-0 img{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+   
+}
+
+.row .m-0 .username{
+    margin: 10px 5px 20px; 
+}
+
+.collapse{
+    color: white;   
+}
+
+.multi-collapse{
+
+}
+
+.nav-item{
+
+}
+
+.form-check-input{
+    background-color: black;
+}
+
+.col-md-10{
+
+}
+
+.breadcrumb{
+
+}
+
+.breadcrumb-item{
+    margin: 10px 0; 
+}
+
+.form-inline{
+    margin-left:auto;
+}
+
+.input-group{
+
+}
+
+.input-group-prepend{
+
+}
+
+.input-group-text{
+
+}

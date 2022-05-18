@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./assets/css/product.css">
@@ -208,7 +208,7 @@
                         </div>
                     </div>
 
-                    <div class="col-product">
+                    <!-- <div class="col-product">
                         <figure class="product-header">
                             <a href="product.php">
                                 <img src="./assets/img/slider/slider-1.jpg" alt="Product image" class="product-img">
@@ -251,9 +251,9 @@
 
                             </div> -->
                         </div>
-                    </div>
+                    <!-- </div> --> 
 
-                    <div class="col-product">
+                    <!-- <div class="col-product">
                         <figure class="product-header">
                             <a href="product.php">
                                 <img src="./assets/img/slider/slider-1.jpg" alt="Product image" class="product-img">
@@ -296,9 +296,9 @@
 
                             </div> -->
                         </div>
-                    </div>
+                    <!-- </div>  -->
 
-                    <div class="col-product">
+                    <!-- <div class="col-product">
                         <figure class="product-header">
                             <a href="product.php">
                                 <img src="./assets/img/slider/slider-1.jpg" alt="Product image" class="product-img">
@@ -341,9 +341,9 @@
 
                             </div> -->
                         </div>
-                    </div>
+                    <!-- </div>  -->
 
-                    <div class="col-product">
+                    <!-- <div class="col-product">
                         <figure class="product-header">
                             <a href="product.php">
                                 <img src="./assets/img/slider/slider-1.jpg" alt="Product image" class="product-img">
@@ -386,9 +386,9 @@
 
                             </div> -->
                         </div>
-                    </div>
+                    <!-- </div>  -->
 
-                    <div class="col-product">
+                    <!-- <div class="col-product">
                         <figure class="product-header">
                             <a href="product.php">
                                 <img src="./assets/img/slider/slider-1.jpg" alt="Product image" class="product-img">
@@ -431,7 +431,7 @@
 
                             </div> -->
                         </div>
-                    </div>
+                    <!-- </div>  -->
 
 
 
@@ -459,6 +459,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js'></script>
 
+    <!-- script auth -->
     <script>
         // const modalContainer = document.querySelector('.js-modal-container');
         // const defaultContainer = document.getElementById('container');
@@ -480,7 +481,9 @@
             event.stopPropagation();
         });
     </script>
+    <!-- end script auth -->
 
+    <!-- script price slider -->
     <script>
         window.onload = function() {
             slideOne();
@@ -517,6 +520,7 @@
             sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #cc9966 ${percent1}% , #cc9966 ${percent2}%, #dadae5 ${percent2}%)`;
         }
     </script>
+    <!-- end script price slider -->
 
 
 </body>
