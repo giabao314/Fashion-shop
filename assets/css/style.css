@@ -443,12 +443,15 @@ body {
 }
 
 #content .content-item .item-container .product-item .product-item-content {
-    height: 380px;
+    height: 400px;
+    width: 792px;
+    margin-left: 10%;
 }
 
 #content .content-item .item-container .product-list {
-    margin-left: 16.6666667%;
+    /* margin-left: 12%; */
     padding: 0 10px;
+    /* margin: auto; */
     background-color: transparent;
     position: relative;
     overflow: hidden;
@@ -651,7 +654,7 @@ figure {
 
 .product-content {
     position: relative;
-    padding-top: 12px;
+    /* padding-top: 12px; */
     z-index: 2;
 }
 

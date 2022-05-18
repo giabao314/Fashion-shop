@@ -1,6 +1,11 @@
-.container{
+.product-container{
     max-width: 80%;
     padding: 0 10px;
+}
+
+.container-fluid {
+    padding: 0!important;
+    margin: 0!important;
 }
 
 #product-slider {
@@ -155,16 +160,11 @@
     width: 100%;
 }
 
-.container {
-    width: 100%;
-    padding: 16px 20px;
-}
-
 .breadcrumb {
     margin: 0;
     width: 100%;
     display: flex;
-    background-color: transparent;
+    background-color: transparent!important;
     padding: 0;
 
 }
@@ -226,7 +226,7 @@
 
 .widget-collapsible .widget-title {
     color: #333;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 20px;
     line-height: 1.15;
     letter-spacing: -.01rem;    
@@ -421,12 +421,12 @@
 }
 
 .price-slider .range-name {
-    font-size: 20px;
+    font-size: 18px;
     color: #333;
 }
 
 .price-slider .price-range span {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300
 }
 
@@ -596,7 +596,7 @@ figure {
     left: 0;
     right: 0;
     bottom: 0;
-    width: 93.8%;
+    width: 93.36%;
     display: flex;
     margin-left: 10px;
     justify-content: center;

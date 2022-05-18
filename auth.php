@@ -1,6 +1,3 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
 <div id="modal" class="js-modal">
     <div class="alert alert-success alert-dismissible" id="success">
         Đăng ký thành công!

@@ -14,12 +14,20 @@
     <link rel="stylesheet" href="./assets/css/footer.css">
     <link rel="stylesheet" href="./assets/css/header.css">
     <link rel="stylesheet" href="./assets/css/productDetail.css">
+    <link rel="stylesheet" href="./assets/css/auth.css">
+
 
     <title>Document</title>
 </head>
 
 <body>
-    <?php include('header.php'); ?>
+    <?php
+    session_start();
+    include('auth.php');
+    ?>
+    <?php
+    include('header.php');
+    ?>
 
     <div class="container-fuild ">
         <div class="row">
@@ -119,6 +127,28 @@
         $(".buttons-only").inputSpinner({
             buttonsOnly: true
         })
+    </script>
+
+    <script>
+        // const modalContainer = document.querySelector('.js-modal-container');
+        // const defaultContainer = document.getElementById('container');
+        // const modal = document.querySelector('.js-modal');
+
+        function showAuth() {
+            modal.classList.add('open');
+        }
+
+        function hideAuth() {
+            modal.classList.remove('open');
+            defaultContainer.classList.remove("right-panel-active");
+        }
+        document.querySelector('.js-sign-auth').addEventListener('click', showAuth);
+        document.querySelector('.js-modal-close').addEventListener('click', hideAuth);
+        modal.addEventListener('click', hideAuth);
+
+        modalContainer.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
     </script>
 </body>
 <!-- MDB -->

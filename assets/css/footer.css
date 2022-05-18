@@ -2,6 +2,13 @@
     margin-top: 60px;
     padding: 100px 0 60px 0;
     background-color: #f2f2f2;
+    width: 100%;
+
+}
+
+#footer .footer-container{
+    width: 100%;
+    padding: 0 48px;
 }
 
 #footer .col-sm-6 .col-lg-3{
