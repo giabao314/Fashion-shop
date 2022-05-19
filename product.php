@@ -67,43 +67,9 @@
                             <i class='bx bx-chevron-down'></i>
                         </a>
                     </h3>
-                    <div id="widget-collapse" class="category collapse show">
-                        <a href="./product.php/?category=quan" class="filter-item">
-                            <div class="filter-name">
-                                Quần
-                            </div>
-                            <div class="filter-query">
-                                <span class="item-count">10</span>
-                            </div>
-                        </a>
-
-                        <a href="./product.php/?category=ao" class="filter-item">
-                            <div class="filter-name">
-                                Áo
-                            </div>
-                            <div class="filter-query">
-                                <span class="item-count">10</span>
-                            </div>
-                        </a>
-
-                        <a href="./product.php/?category=phukien" class="filter-item">
-                            <div class="filter-name">
-                                Phụ Kiện
-                            </div>
-                            <div class="filter-query">
-                                <span class="item-count">10</span>
-                            </div>
-                        </a>
-
-                        <a href="./product.php/?category=khac" class="filter-item">
-                            <div class="filter-name">
-                                Khác
-                            </div>
-                            <div class="filter-query">
-                                <span class="item-count">10</span>
-                            </div>
-                        </a>
-                    </div>
+                    <?php 
+                        include('category.php');
+                    ?>
 
                 </div>
                 <div class="widget widget-collapsible">
