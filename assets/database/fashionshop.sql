@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2022 at 12:44 PM
+-- Generation Time: May 19, 2022 at 08:27 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `fashionshop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `anhsp`
+--
+
+CREATE TABLE `anhsp` (
+  `idSP` int(11) NOT NULL,
+  `url` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `anhsp`
+--
+
+INSERT INTO `anhsp` (`idSP`, `url`) VALUES
+(0, 'product-10.jpg'),
+(1, 'product-6.jpg');
 
 -- --------------------------------------------------------
 
@@ -97,6 +116,7 @@ CREATE TABLE `hoadon` (
 
 CREATE TABLE `khachhang` (
   `idKH` int(11) NOT NULL,
+  `idTK` int(11) NOT NULL,
   `hoKH` varchar(100) NOT NULL,
   `tenKH` varchar(100) NOT NULL,
   `ngaySinh` date NOT NULL,
@@ -140,6 +160,16 @@ CREATE TABLE `loaisp` (
   `tenLoaiSP` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `loaisp`
+--
+
+INSERT INTO `loaisp` (`idLoaiSP`, `tenLoaiSP`) VALUES
+(1, 'Áo'),
+(2, 'Quần'),
+(3, 'Phụ Kiện'),
+(4, 'Khác');
+
 -- --------------------------------------------------------
 
 --
@@ -148,6 +178,7 @@ CREATE TABLE `loaisp` (
 
 CREATE TABLE `nhanvien` (
   `idNV` int(11) NOT NULL,
+  `idTK` int(11) NOT NULL,
   `hoNV` varchar(100) NOT NULL,
   `tenNV` varchar(100) NOT NULL,
   `ngaySinh` date NOT NULL,
@@ -187,13 +218,27 @@ CREATE TABLE `quyendanhmuc` (
 
 CREATE TABLE `sanpham` (
   `idSP` int(11) NOT NULL,
+  `idLoaiSP` int(11) NOT NULL,
   `tenSP` varchar(100) NOT NULL,
-  `size` int(11) NOT NULL,
-  `color` varchar(50) NOT NULL,
   `slTonKho` int(11) NOT NULL,
   `donGia` int(11) NOT NULL,
-  `sp-Img` varchar(100) NOT NULL
+  `anhSP` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sanpham`
+--
+
+INSERT INTO `sanpham` (`idSP`, `idLoaiSP`, `tenSP`, `slTonKho`, `donGia`, `anhSP`) VALUES
+(1, 4, 'váy màu vàng tươi cùng họa tiết bông hoa đen', 10, 165, 'product-6.jpg'),
+(2, 3, 'Túi đeo chéo hình hộp nhỏ màu đen', 20, 36, 'product-10.jpg'),
+(3, 3, 'Giày mules da gót in họa tiết ngựa vằn đen', 20, 120, 'product-9.jpg'),
+(5, 4, 'Váy Crepe in họa tiết Botanical', 30, 165, 'product-6-2.jpg'),
+(6, 3, 'Túi đeo vai da cỡ trung bình Cece', 40, 358, 'product-8.jpg'),
+(7, 3, 'giày Sandal da Cunningham', 50, 119, 'product-7.jpg'),
+(8, 3, 'Giày Sandal họa tiết chuỗi vòng màu vàng', 40, 96, 'product-5-2.jpg'),
+(9, 1, 'Áo khoác Moto thể thao', 40, 130, 'product-1.jpg'),
+(10, 2, 'Quần Black Industry', 40, 350, 'product-11.jpg');
 
 -- --------------------------------------------------------
 
@@ -215,7 +260,6 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`idTK`, `tenTK`, `email`, `password`, `idQuyen`, `ava-Img`) VALUES
-(23, '123', '123', '202cb962ac59075b964b07152d234b70', NULL, ''),
 (24, '111', '111', '698d51a19d8a121ce581499d7b701668', 3, ''),
 (36, '222', '222', 'bcbe3365e6ac95ea2c0343a2395834dd', 3, ''),
 (37, '112', '112', '7f6ffaa6bb0b408017b62254211691b5', 3, ''),
@@ -236,6 +280,12 @@ INSERT INTO `taikhoan` (`idTK`, `tenTK`, `email`, `password`, `idQuyen`, `ava-Im
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `anhsp`
+--
+ALTER TABLE `anhsp`
+  ADD PRIMARY KEY (`idSP`);
 
 --
 -- Indexes for table `calamviec`
@@ -272,7 +322,8 @@ ALTER TABLE `hoadon`
 --
 ALTER TABLE `khachhang`
   ADD PRIMARY KEY (`idKH`),
-  ADD UNIQUE KEY `idLoaiKH` (`idLoaiKH`);
+  ADD UNIQUE KEY `idLoaiKH` (`idLoaiKH`),
+  ADD UNIQUE KEY `idTK` (`idTK`);
 
 --
 -- Indexes for table `khuyenmai`
@@ -297,7 +348,8 @@ ALTER TABLE `loaisp`
 --
 ALTER TABLE `nhanvien`
   ADD PRIMARY KEY (`idNV`),
-  ADD UNIQUE KEY `idCa` (`idCa`);
+  ADD UNIQUE KEY `idCa` (`idCa`),
+  ADD UNIQUE KEY `idTK` (`idTK`);
 
 --
 -- Indexes for table `quyen`
@@ -315,7 +367,8 @@ ALTER TABLE `quyendanhmuc`
 -- Indexes for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  ADD PRIMARY KEY (`idSP`);
+  ADD PRIMARY KEY (`idSP`),
+  ADD KEY `idLoaiSP` (`idLoaiSP`);
 
 --
 -- Indexes for table `taikhoan`
@@ -338,7 +391,7 @@ ALTER TABLE `calamviec`
 -- AUTO_INCREMENT for table `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `idDM` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idDM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `hoadon`
@@ -362,7 +415,7 @@ ALTER TABLE `loaikh`
 -- AUTO_INCREMENT for table `loaisp`
 --
 ALTER TABLE `loaisp`
-  MODIFY `idLoaiSP` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idLoaiSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `nhanvien`
@@ -380,7 +433,7 @@ ALTER TABLE `quyen`
 -- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `idSP` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `taikhoan`
