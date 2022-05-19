@@ -693,6 +693,7 @@ figure {
     color: #000;
     text-decoration: none;
     font-weight: 350;
+    text-transform: capitalize;
 }
 
 .product-title:hover a{
