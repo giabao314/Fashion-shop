@@ -1,3 +1,14 @@
+<?php
+// setup so trang
+include('opendb.php');
+$limit = 6;
+// setup so trang
+$query = mysqli_query($conn, "SELECT count(idSP) from sanpham");
+$row = mysqli_fetch_row($query);
+$product_records = $row[0];
+$page_num = ceil($product_records / $limit);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,16 +23,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./assets/css/product.css">
-    <link rel="stylesheet" href="./assets/scss/price-slider.scss">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <link rel="stylesheet" href="./assets/css/header.css">
     <link rel="stylesheet" href="./assets/css/auth.css">
-    <!-- <link rel="stylesheet" href="./assets/css/styleClone.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- <script src="./script.js"></script> -->
-    <!-- <script src="./assets/js/price-slider.js"></script> -->
     <title>Document</title>
+
 </head>
 
 <body>
@@ -105,12 +112,29 @@
                 </div>
             </div>
             <div class="col-lg-9">
-                <?php
-                include('productItem.php');
-                ?>
-                <?php 
-                include('pagination.php');
-                ?>
+                <div id="ajax-product-item">
+                </div>
+                <div class="clearfix">
+                    <ul class="pagination">
+                        <?php
+                        if (!empty($page_num)) {
+                            for ($i = 1; $i <= $page_num; $i++) {
+                                if ($i == 1) {
+                        ?>
+                                    <li class="page-item active" id="<?php echo $i; ?>"><a href="JavaScript:void(0);" data-id="<?php echo $i; ?>" class="page-link"><?php echo $i; ?></a></li>
+
+                                <?php
+                                } else {
+                                ?>
+                                    <li class="page-item" id="<?php echo $i; ?>"><a href="JavaScript:void(0);" class="page-link" data-id="<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                        <?php
+                                }
+                            }
+                        }
+                        ?>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </div>
@@ -118,7 +142,6 @@
         <?php
         include('footer.php');
         ?>
-
     </div>
 
     <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
@@ -188,6 +211,35 @@
         }
     </script>
     <!-- end script price slider -->
+
+    <!-- script pagination ajax -->
+    <script>
+        $(document).ready(function() {
+            $("#ajax-product-item").load("paginationProcess.php?page=1");
+            $(".page-link").click(function() {
+                var id = $(this).attr("data-id");
+                var select_id = $(this).parent().attr("id");
+
+                $.ajax({
+                    url: "paginationProcess.php",
+                    type: "GET",
+                    data: {
+                        page: id
+
+                    },
+                    cache: false,
+                    success: function(dataResult) {
+                        $("#ajax-product-item").html(dataResult);
+                        $(".page-item").removeClass("active");
+                        $("#" + select_id).addClass("active");
+
+                    }
+                });
+            });
+        });
+    </script>
+    <!-- end script pagination ajax -->
+
 
 
 </body>

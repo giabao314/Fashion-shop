@@ -11,8 +11,8 @@ if ($_POST['type'] == 1)
     // echo(mysqli_num_rows($checkEmail));
     if (mysqli_num_rows($checkEmail) > 0) 
     {
-        echo('email trung');
-        // echo json_encode(array("statusCode" => 201));
+        // echo('email trung');
+        echo json_encode(array("statusCode" => 201));
     } 
     else {
         $sql = "INSERT INTO taikhoan (tenTK, email, password, idQuyen) 

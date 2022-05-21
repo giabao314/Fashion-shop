@@ -1,6 +1,6 @@
 <?php
 include('opendb.php');
-$sql_category_soLuong = mysqli_query($conn, 'SELECT sanpham.idLoaiSP,SUM(sanpham.slTonKho) as sum,loaisp.tenLoaiSP FROM sanpham,loaisp WHERE sanpham.idLoaiSP=loaisp.idLoaiSP GROUP BY idLoaiSP ASC');
+$sql_category_soLuong = mysqli_query($conn, 'SELECT sanpham.idLoaiSP,count(idSP) as sum,loaisp.tenLoaiSP FROM sanpham,loaisp WHERE sanpham.idLoaiSP=loaisp.idLoaiSP GROUP BY idLoaiSP ASC');
 // if($category)
 // echo("ket noi thanh cong!");
 // echo $category;

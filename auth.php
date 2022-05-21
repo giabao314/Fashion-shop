@@ -81,7 +81,7 @@
 <script>
     $(document).ready(function() {
         $('#ajaxreg').on('click', function() {
-            $("#ajaxreg").attr("disabled", "disabled");
+            // $("#ajaxreg").attr("disabled", "disabled");
             // var ho = $("input[name=ho]").val();
             var tenTK = $("input[name=tenTK]").val();
             var email = $("input[name=email]").val();
