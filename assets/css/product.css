@@ -277,6 +277,10 @@
     color: #000;
 }
 
+.widget-collapsible .category .filter-item .filter-name {
+    text-align: left;
+}
+
 .widget-collapsible .category .filter-item a {
     /* width: 100%; */
     
@@ -707,4 +711,24 @@ figure {
     color: #cc9966;
     font-size: 20px;
     font-weight: 400;
+}
+
+.clearfix {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.clearfix ul, .clearfix li, .clearfix a {
+    color: #cc9966;
+}
+
+.page-item.active .page-link {
+    background-color: #cc9966!important;
+    border-color: #cc9966!important;
+}
+
+.page-link:hover {
+    color: #cc9966!important;
+
 }

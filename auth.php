@@ -153,7 +153,7 @@
                         // alert('alo');
                         var dataResult = JSON.parse(dataResult);
                         // alert(dataResult);
-                        console.log(dataResult.statusCode);
+                        // console.log(dataResult.statusCode);
                         if (dataResult.statusCode == 200) {
                             // alert("co vao day khong?");
                             // location.href = "index.php";

@@ -65,7 +65,7 @@
 	</nav><br><br>
 	<div class="container">
 		<div class="row">
-		<?php
+			<?php
 			if(isset($_GET['quanly'])=='capnhat'){
 				$id_capnhat = $_GET['capnhat_id'];
 				$sql_capnhat = mysqli_query($conn,"SELECT * FROM sanpham WHERE idSP='$id_capnhat'");
@@ -113,7 +113,7 @@
 			}else{
 				?> 
 				<div class="col-md-4">
-				<h4>Thêm sản phẩm</h4>
+				<h4 height="100" width="80" >Thêm sản phẩm</h4>
 				
 				<form action="" method="POST" enctype="multipart/form-data">
 					<label>Tên sản phẩm</label>

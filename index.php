@@ -69,7 +69,6 @@
                         <?php
                         if (isset($_SESSION['elog'])) {
                         ?>
-
                             <script>
                                 authBtn = document.getElementById("auth-index").style.display = "none";
                                 console.log(authBtn);

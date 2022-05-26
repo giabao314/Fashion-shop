@@ -20,12 +20,12 @@
 
     <!-- Right navbar -->
     <div class="navbar-right">
-        <form action="" method="post">
+        <form method="post">
             <div class="right-item nav-search-wrapper">
-                <input id="search-input" type="search" class="search-form" name="search-item" placeholder="Tìm sản phẩm...">
-                <button class="btn-search" name="search-btn">
+                <input type="search" class="search-form" name="search-item" placeholder="Tìm sản phẩm...">
+                <input type="button" id="ajax-btn-search" class="btn-search" name="search-btn">
                     <i class='bx bx-search'></i>
-                </button>
+                </input>
             </div>
         </form>
         <div class="auth-btn">

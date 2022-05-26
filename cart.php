@@ -1,3 +1,6 @@
+<?php
+$cart = (isset($_POST['cart'])) ? $_SESSION['cart']: [];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,88 +49,66 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-9">
-                            <table class="table table-cart table-mobile">
-                                <thead>
-                                    <tr>
-                                        <th>Sản phẩm</th>
-                                        <th>Giá</th>
-                                        <th>Số lượng</th>
-                                        <th>Tổng giá</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="product-col">
-                                            <div class="product">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="./assets/img/product/product-1.jpg" alt="">
-                                                    </a>
-                                                </figure>
-                                                <h3 class="product-title">
-                                                    <a href="#">Trang phuc nam moi nhat</a>
-                                                </h3>
-                                            </div>
-                                        </td>
-                                        <td class="price-col">$80.00</td>
-                                        <td class="quantity-col">
-                                            <div class="cart-product-quantity">
-                                                <input type="number" value="1" min="1" max="1000" step="1" />
-                                            </div>
-                                        </td>
-                                        <td class="total-col">$80.00</td>
-                                        <td class="remove-col">
-                                            <button class="btn-remove">
-                                                <i class='bx bx-x'></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tbody>
-                                    <tr>
-                                        <td class="product-col">
-                                            <div class="product">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="./assets/img/product/product-1.jpg" alt="">
-                                                    </a>
-                                                </figure>
-                                                <h3 class="product-title">
-                                                    <a href="#">Trang phuc nam thiet ke dac biet</a>
-                                                </h3>
-                                            </div>
-                                        </td>
-                                        <td class="price-col">$80.00</td>
-                                        <td class="quantity-col">
-                                            <div class="cart-product-quantity">
-                                                <input type="number" value="1" min="1" max="1000" step="1" />
-                                            </div>
-                                        </td>
-                                        <td class="total-col">$80.00</td>
-                                        <td class="remove-col">
-                                            <button class="btn-remove">
-                                                <i class='bx bx-x'></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button class="btn btn-outline-dark col-3 btn-block">
-                                    <span>UPDATE CART</span>
-                                    <i class='bx bx-refresh'></i>
-                                </button>
-                            </div>
+                        <table class="table table-cart table-mobile">
+                            <thead>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng giá</th>
+                                    <th></th>
+                                </tr>
+                            <tbody>
+                                <?php $tamtinh = 0; ?>
+                                <?php foreach ($cart as $key => $value): 
+                                    $tamtinh += ($value['gia']*$value['qty']);
+                                ?>
+                                <tr>
+                                    <td class="product-col">
+                                        <div class="product">
+                                            <figure class="product-media">
+                                                <a href="#">
+                                                    <img src="/assets/img/product/<?php echo $value['anh'] ?>" alt="">
+                                                </a>
+                                            </figure>
+                                            <h3 class="product-title">
+                                                <a href="#"><?php echo $value['ten'] ?></a>
+                                            </h3>
+                                        </div>
+                                    </td>
+                                    <td class="price-col"><?php echo $value['gia'] ?></td>
+                                    <td class="quantity-col" action="cart.php">
+                                        <div class="cart-product-quantity">
+                                            <input type="hidden" name="action" value="update">
+                                            <input type="hidden" name="idSP" value="<?php echo $value['id'] ?>">
+                                            <input type="number" value="<?php echo $value['qty'] ?>" min="1" step="1" />
+                                        </div>
+                                    </td>
+                                    <td class="total-col"><?php echo number_format($value['gia']*$value['qty']) ?></td>
+                                    <td class="remove-col">
+                                        <button class="btn-remove" href="cart.php?id=<?php echo $value['id']  ?> &action=delete">
+                                            <i class='bx bx-x'></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end" action="cart.php">
+                            <button class="btn btn-outline-dark col-3 btn-block" type="submit">
+                                <span>UPDATE CART</span>
+                                <i class='bx bx-refresh'></i>
+                            </button>
                         </div>
-                        <div class="col-log-4">
+                        </div>
+                        <div class="col-log-4"> 
                             <div class="summary summary-cart">
                                 <h3 class="summary-title">Cart Total</h3>
                                 <table class="table summary-table">
                                     <tbody>
                                         <tr class="summary-subtotal">
                                             <td>Tạm tính</td>
-                                            <td>$80.00</td>
+                                            <td><?php echo number_format($tamtinh)?></td>
                                         </tr>
                                         <tr class="summary-shipping">
                                             <td>Phương thức vận chuyển</td>
@@ -197,10 +178,6 @@
 
         <?php include('footer.php'); ?>
     </div>
-
-
-
-
 
     <script>
         const modalContainer = document.querySelector('.js-modal-container');

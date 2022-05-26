@@ -21,8 +21,8 @@ if(isset($_POST['capnhatdonhang'])){
 		$huydon = '';
 		$idHD = '';
 	}
-	$sql_update_donhang = mysqli_query($conn,"UPDATE hoadon SET huydon='$huydon' WHERE idHD='$idHD'");
-	$sql_update_giaodich = mysqli_query($conn,"UPDATE cthoadon SET huydon='$huydon' WHERE idHD='$idHD'");
+	$sql_update_donhang = mysqli_query($conn,"UPDATE hoadon SET tinhtrang='$huydon' WHERE idHD='$idHD'");
+	$sql_update_giaodich = mysqli_query($conn,"UPDATE cthoadon SET tinhtrang='$huydon' WHERE idHD='$idHD'");
 
 ?>
 <!DOCTYPE html>
@@ -54,7 +54,7 @@ if(isset($_POST['capnhatdonhang'])){
 					$sql_chitiet = mysqli_query($conn,"SELECT * FROM cthoadon,sanpham WHERE cthoadon.idSP=sanpham.idSP AND cthoadon.idHD='$idHD'");
 					?>
 				<div class="col-md-7">
-				<p>Xem chi tiết đơn hàng</p>
+				<p><h4>Xem chi tiết đơn hàng</h4></p>
 			<form action="" method="POST">
 				<table class="table table-bordered ">
 					<tr>
@@ -80,6 +80,7 @@ if(isset($_POST['capnhatdonhang'])){
 						<td><?php echo number_format($row_donhang['donGia']).'$'; ?></td>
 						<td><?php echo number_format($row_donhang['soLuong']*$row_donhang['donGia']).'$'; ?></td>
 						<input type="hidden" name="idSP_xuly" value="<?php echo $row_donhang['idSP'] ?>">
+						<input type="hidden" name="idHD_xuly" value="<?php echo $row_donhang['idHD'] ?>">
 
 						<!-- <td><a href="?xoa=<?php echo $row_donhang['donhang_id'] ?>">Xóa</a> || <a href="?quanly=xemdonhang&idSP=<?php echo $row_donhang['idSP'] ?>">Xem đơn hàng</a></td> -->
 					</tr>
@@ -100,8 +101,7 @@ if(isset($_POST['capnhatdonhang'])){
 			}else{
 				?> 
 				
-				<div class="col-md-7">
-					<p>Đơn hàng</p>
+				<div class="col-md-3">
 				</div>  
 				<?php
 			} 
@@ -140,7 +140,7 @@ if(isset($_POST['capnhatdonhang'])){
 						?></td>
 						<td><?php echo $row_donhang['tenKH']; ?></td>
 						<td><?php echo $row_donhang['ngayDat'] ?></td>
-						<td><?php if($row_donhang['huyDon']==0){ }elseif($row_donhang['huyDon']==1){
+						<td><?php if($row_donhang['tinhTrang']==0){ }elseif($row_donhang['tinhTrang']==1){
 							echo '<a href="xulydonhang.php?quanly=xemdonhang&idHD='.$row_donhang['idHD'].'&xacnhanhuy=2">Xác nhận hủy đơn</a>';
 						}else{
 							echo 'Đã hủy';

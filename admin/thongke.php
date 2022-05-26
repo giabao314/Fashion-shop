@@ -45,8 +45,19 @@ while ($row = mysqli_fetch_array($result)) {
         </div>
 
     </nav><br>
-    <div id="piechart" class="container" style="width: 900px; height: 500px;"></div>
+    <div id="piechart" class="container" style="width: 1000px; height: 400px;"></div>
 </body>
+<input type="text" name="daterange" value="01/01/2022 - 12/31/2022" />
+
+<script>
+$(function() {
+  $('input[name="daterange"]').daterangepicker({
+    opens: 'left'
+  }, function(start, end, label) {
+    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+  });
+});
+</script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
     google.charts.load('current', {
@@ -71,17 +82,7 @@ while ($row = mysqli_fetch_array($result)) {
     }
 
 </script>
-<input type="text" name="daterange" value="01/01/2022 - 12/31/2022" />
 
-<script>
-$(function() {
-  $('input[name="daterange"]').daterangepicker({
-    opens: 'left'
-  }, function(start, end, label) {
-    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-  });
-});
-</script>
 
 
 </html>

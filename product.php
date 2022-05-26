@@ -1,12 +1,5 @@
 <?php
-// setup so trang
 include('opendb.php');
-$limit = 6;
-// setup so trang
-$query = mysqli_query($conn, "SELECT count(idSP) from sanpham");
-$row = mysqli_fetch_row($query);
-$product_records = $row[0];
-$page_num = ceil($product_records / $limit);
 ?>
 
 <!DOCTYPE html>
@@ -36,9 +29,69 @@ $page_num = ceil($product_records / $limit);
     session_start();
     include('auth.php');
     ?>
-    <?php
-    include('header.php');
-    ?>
+    <header id="heading">
+        <!-- Left navbar -->
+        <div class="navbar-left">
+            <a href="index.php" class="left-item nav-logo"><img src="./assets/img/logo/molla-logo.png" alt="Fashion-logo" class="nav-logo"></a>
+            <a href="index.php" class="left-item nav-home">TRANG CHỦ</a>
+            <div class="subnav">
+                <div class="subnav-separate"></div>
+                <a href="product.php" class="nav-product">
+                    SẢN PHẨM
+                    <i class='bx bx-chevron-down'></i></i>
+                </a>
+                <div class="subnav-menu-left">
+                    <a class="subnav-item" href="#">THỜI TRANG NAM</a>
+                    <a class="subnav-item" href="#">THỜI TRANG NỮ</a>
+                </div>
+            </div>
+            <a href="#" class="left-item nav-about">VỀ CHÚNG TÔI</a>
+            <a href="#" class="left-item nav-contact">LIÊN HỆ</a>
+        </div>
+
+        <!-- Right navbar -->
+        <div class="navbar-right">
+            <form method="post">
+                <div class="right-item nav-search-wrapper">
+                    <input type="search" class="search-form" id="search-box" name="search-box" placeholder="Tìm sản phẩm...">
+                    <input type="button" id="ajax-btn-search" class="btn-search" name="search-btn">
+                    <i class='bx bx-search'></i>
+                    </input>
+                </div>
+            </form>
+            <div class="auth-btn">
+                <!-- <a href="auth.php"> -->
+                <button class="right-item auth js-sign-auth">Đăng nhập / Đăng kí</button>
+                <?php
+                if (isset($_SESSION['elog'])) {
+                ?>
+
+                    <script>
+                        document.querySelector(".js-sign-auth").style.display = "none";
+                    </script>
+                    <a class="right-item auth" href="logout.php">
+                        Đăng xuất
+                    </a>
+                    <a class="right-item auth auth-user" href="user.php">
+                        <?php
+                        echo "Chào " . $_SESSION['signIn_name'];
+                        ?>
+                    </a>
+                <?php
+                }
+                ?>
+                <!-- </a> -->
+            </div>
+            <div class="cart-dropdown">
+                <a class="nav-cart" href="cart.php?quanly=xemdonhang&khachhang=<?php echo $_SESSION['signIn_id'] ?>">
+                    <i class='bx bx-cart-alt bx-tada cart-item'></i>
+                    <span class="nav-product-count">5</span>
+                    <!-- <div class="clear"></div> -->
+                </a>
+                <div class="dropdown-menu-right"></div>
+            </div>
+        </div>
+    </header>
     <div id="product-slider">
         <div class="slider-show">
             <div class="slider-content">
@@ -74,10 +127,9 @@ $page_num = ceil($product_records / $limit);
                             <i class='bx bx-chevron-down'></i>
                         </a>
                     </h3>
-                    <?php
-                    include('category.php');
+                    <?php 
+                        include('filter.php');
                     ?>
-
                 </div>
                 <div class="widget widget-collapsible">
                     <h3 class="widget-title">
@@ -92,18 +144,24 @@ $page_num = ceil($product_records / $limit);
                                     <div class="range-name">Khoảng giá</div>
                                     <div class="price-range">
                                         <span id="range1">
-                                            0$
+                                            <?php
+                                            $min_row = mysqli_fetch_array(mysqli_query($conn, "SELECT MIN(donGia) as min FROM sanpham ORDER BY sanpham.donGia ASC"));
+                                            echo $min_price = number_format($min_row['min']);
+                                            ?>
                                         </span>
                                         <span> &dash; </span>
                                         <span id="range2">
-                                            100$
+                                            <?php
+                                            $max_row = mysqli_fetch_array(mysqli_query($conn, "SELECT MAX(donGia) as max FROM sanpham ORDER BY sanpham.donGia DESC"));
+                                            echo $max_price = number_format($max_row['max']);
+                                            ?>
                                         </span>
                                     </div>
                                 </div>
                                 <div class="price-slider-container">
                                     <div class="slider-track"></div>
-                                    <input type="range" min="0" max="100" value="0" id="slider-1" oninput="slideOne()">
-                                    <input type="range" min="0" max="100" value="100" id="slider-2" oninput="slideTwo()">
+                                    <input type="range" min="30" max="9000" value="30" id="slider-1" oninput="slideOne()">
+                                    <input type="range" min="30" max="9000" value="9000" id="slider-2" oninput="slideTwo()">
                                 </div>
                             </div>
                         </div>
@@ -111,30 +169,7 @@ $page_num = ceil($product_records / $limit);
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9">
-                <div id="ajax-product-item">
-                </div>
-                <div class="clearfix">
-                    <ul class="pagination">
-                        <?php
-                        if (!empty($page_num)) {
-                            for ($i = 1; $i <= $page_num; $i++) {
-                                if ($i == 1) {
-                        ?>
-                                    <li class="page-item active" id="<?php echo $i; ?>"><a href="JavaScript:void(0);" data-id="<?php echo $i; ?>" class="page-link"><?php echo $i; ?></a></li>
-
-                                <?php
-                                } else {
-                                ?>
-                                    <li class="page-item" id="<?php echo $i; ?>"><a href="JavaScript:void(0);" class="page-link" data-id="<?php echo $i; ?>"><?php echo $i; ?></a></li>
-                        <?php
-                                }
-                            }
-                        }
-                        ?>
-                    </ul>
-                </div>
-
+            <div id="dynamic-content" class="col-lg-9">
             </div>
         </div>
     </div>
@@ -144,6 +179,14 @@ $page_num = ceil($product_records / $limit);
         ?>
     </div>
 
+<style>
+    #loading {
+        text-align: center;
+        background: url("./assets/img/slider/loader.gif") no-repeat center;
+        height: 150px;
+    }
+</style>
+
     <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
     <script src='https://code.jquery.com/ui/1.12.0/jquery-ui.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'></script>
@@ -151,9 +194,9 @@ $page_num = ceil($product_records / $limit);
 
     <!-- script auth -->
     <script>
-        // const modalContainer = document.querySelector('.js-modal-container');
-        // const defaultContainer = document.getElementById('container');
-        // const modal = document.querySelector('.js-modal');
+        const modalContainer = document.querySelector('.js-modal-container');
+        const defaultContainer = document.getElementById('container');
+        const modal = document.querySelector('.js-modal');
 
         function showAuth() {
             modal.classList.add('open');
@@ -192,6 +235,7 @@ $page_num = ceil($product_records / $limit);
             if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
                 sliderOne.value = parseInt(sliderTwo.value) - minGap;
             }
+            console.log(displayValOne.textContent);
             displayValOne.textContent = sliderOne.value + '$';
             fillColor();
         }
@@ -200,6 +244,7 @@ $page_num = ceil($product_records / $limit);
             if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
                 sliderTwo.value = parseInt(sliderOne.value) + minGap;
             }
+            console.log(displayValTwo.textContent);
             displayValTwo.textContent = sliderTwo.value + '$';
             fillColor();
         }
@@ -212,33 +257,45 @@ $page_num = ceil($product_records / $limit);
     </script>
     <!-- end script price slider -->
 
-    <!-- script pagination ajax -->
+    <!-- script search w pagination ajax -->
     <script>
         $(document).ready(function() {
-            $("#ajax-product-item").load("paginationProcess.php?page=1");
-            $(".page-link").click(function() {
-                var id = $(this).attr("data-id");
-                var select_id = $(this).parent().attr("id");
 
+            function filter_data() {
+                $('#dynamic-content').html('<div id="loading" style=""></div>');
+                var action = 'fetch_data';
+                var mininum_price = 
+            }
+
+            load_data(1);
+            
+            function load_data(page, query = '') {
                 $.ajax({
-                    url: "paginationProcess.php",
-                    type: "GET",
+                    url: "fetch.php",
+                    method: "POST",
                     data: {
-                        page: id
-
+                        page: page,
+                        query: query
                     },
-                    cache: false,
                     success: function(dataResult) {
-                        $("#ajax-product-item").html(dataResult);
-                        $(".page-item").removeClass("active");
-                        $("#" + select_id).addClass("active");
-
+                        $('#dynamic-content').html(dataResult);
                     }
                 });
+            }
+            $(document).on('click', '.page-link', function() {
+                var page = $(this).data('page_number');
+                var query = $('#search-box').val();
+                load_data(page, query);
             });
+
+            $('#search-box').keyup(function() {
+                var query = $('#search-box').val();
+                load_data(1, query);
+            });
+
         });
     </script>
-    <!-- end script pagination ajax -->
+    <!-- end script search w pagination ajax -->
 
 
 
