@@ -34,7 +34,7 @@ $result = mysqli_query($conn, $query);
                 $sql_loaisp = mysqli_query($conn, "SELECT DISTINCT tenLoaiSP  FROM hoadon,sanpham,cthoadon,loaisp WHERE hoadon.idHD=cthoadon.idHD AND cthoadon.idSP=sanpham.idSP AND loaisp.idLoaiSP=sanpham.idLoaiSP");
                 ?>
                 <select name="filter_type" id="filter_type" class="form-control">
-                    <option value="0"></option>
+                    <option value="0">All</option>
                     <?php
                     while ($row_loaisp = mysqli_fetch_array($sql_loaisp)) {
                     ?>
@@ -76,7 +76,7 @@ $result = mysqli_query($conn, $query);
         <?php
         while ($row_top = mysqli_fetch_array($sql_top)) {
         ?>
-            <h2>Sản phẩm bán chạy nhất <?php echo $row_top['tenSP'] ?> với số lượng bán là <?php echo $row_top['soLuong'] ?> thuộc loại <?php echo $row_top['tenLoaiSP'] ?></h2>
+            <h2>Sản phẩm <?php echo $row_top['tenSP'] ?> bán chạy nhất với số lượng bán là <?php echo $row_top['soLuong'] ?> thuộc loại <?php echo $row_top['tenLoaiSP'] ?></h2>
         <?php
         }
         ?>

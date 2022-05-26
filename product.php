@@ -264,7 +264,16 @@ include('opendb.php');
             function filter_data() {
                 $('#dynamic-content').html('<div id="loading" style=""></div>');
                 var action = 'fetch_data';
-                var mininum_price = 
+                var minimum_price = $('#slider-1').val();
+                var maximum_price = $('#slider-2').val();
+                var brand = get_filter('brand');
+            }
+
+            function get_filter(class_name) {
+                var filter = [];
+                $('.'+class_name+':checked').each(function(){
+                    filter.push($(this).val());
+                });
             }
 
             load_data(1);
