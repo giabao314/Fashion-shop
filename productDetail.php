@@ -35,18 +35,6 @@
                 <div class="product-gallery">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="row m-1">
-                                <img src="./assets/img/slider/slider-1.jpg" alt="">
-                            </div>
-                            <div class="row m-1">
-                                <img src="./assets/img/slider/slider-1.jpg" alt="">
-                            </div>
-                            <div class="row m-1">
-                                <img src="./assets/img/slider/slider-1.jpg" alt="">
-                            </div>
-                            <div class="row m-1">
-                                <img src="./assets/img/slider/slider-1.jpg" alt="">
-                            </div>
                         </div>
                         <div class="col-md-9">
                             <img src="./assets/img/slider/slider-1.jpg" alt="">

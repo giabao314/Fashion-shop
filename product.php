@@ -127,8 +127,8 @@ include('opendb.php');
                             <i class='bx bx-chevron-down'></i>
                         </a>
                     </h3>
-                    <?php 
-                        include('filter.php');
+                    <?php
+                    include('filter.php');
                     ?>
                 </div>
                 <div class="widget widget-collapsible">
@@ -144,22 +144,16 @@ include('opendb.php');
                                     <div class="range-name">Khoảng giá</div>
                                     <div class="price-range">
                                         <span id="range1">
-                                            <?php
-                                            $min_row = mysqli_fetch_array(mysqli_query($conn, "SELECT MIN(donGia) as min FROM sanpham ORDER BY sanpham.donGia ASC"));
-                                            echo $min_price = number_format($min_row['min']);
-                                            ?>
+                                            30
                                         </span>
                                         <span> &dash; </span>
                                         <span id="range2">
-                                            <?php
-                                            $max_row = mysqli_fetch_array(mysqli_query($conn, "SELECT MAX(donGia) as max FROM sanpham ORDER BY sanpham.donGia DESC"));
-                                            echo $max_price = number_format($max_row['max']);
-                                            ?>
+                                            9000
                                         </span>
                                     </div>
                                 </div>
                                 <div class="price-slider-container">
-                                    <div class="slider-track"></div>
+                                    <div id="price-range" class="slider-track"></div>
                                     <input type="range" min="30" max="9000" value="30" id="slider-1" oninput="slideOne()">
                                     <input type="range" min="30" max="9000" value="9000" id="slider-2" oninput="slideTwo()">
                                 </div>
@@ -179,13 +173,13 @@ include('opendb.php');
         ?>
     </div>
 
-<style>
-    #loading {
-        text-align: center;
-        background: url("./assets/img/slider/loader.gif") no-repeat center;
-        height: 150px;
-    }
-</style>
+    <style>
+        #loading {
+            text-align: center;
+            background: url("./assets/img/slider/loader.gif") no-repeat center;
+            height: 150px;
+        }
+    </style>
 
     <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
     <script src='https://code.jquery.com/ui/1.12.0/jquery-ui.min.js'></script>
@@ -217,6 +211,47 @@ include('opendb.php');
     <!-- end script auth -->
 
     <!-- script price slider -->
+    <script>
+        // window.onload = function() {
+        //     slideOne();
+        //     slideTwo();
+        // }
+
+        // let sliderOne = document.getElementById("slider-1");
+        // let sliderTwo = document.getElementById("slider-2");
+        // let displayValOne = document.getElementById("range1");
+        // let displayValTwo = document.getElementById("range2");
+        // let minGap = 0;
+        // let sliderTrack = document.querySelector(".slider-track");
+        // let sliderMaxValue = document.getElementById("slider-1").max;
+
+        // function slideOne() {
+        //     if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+        //         sliderOne.value = parseInt(sliderTwo.value) - minGap;
+        //     }
+        //     console.log(displayValOne.textContent);
+        //     displayValOne.textContent = sliderOne.value + '$';
+        //     fillColor();
+        // }
+
+        // function slideTwo() {
+        //     if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+        //         sliderTwo.value = parseInt(sliderOne.value) + minGap;
+        //     }
+        //     console.log(displayValTwo.textContent);
+        //     displayValTwo.textContent = sliderTwo.value + '$';
+        //     fillColor();
+        // }
+
+        // function fillColor() {
+        //     percent1 = (sliderOne.value / sliderMaxValue) * 100;
+        //     percent2 = (sliderTwo.value / sliderMaxValue) * 100;
+        //     sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #cc9966 ${percent1}% , #cc9966 ${percent2}%, #dadae5 ${percent2}%)`;
+        // }
+    </script>
+    <!-- end script price slider -->
+
+    <!-- script search w pagination ajax -->
     <script>
         window.onload = function() {
             slideOne();
@@ -254,35 +289,32 @@ include('opendb.php');
             percent2 = (sliderTwo.value / sliderMaxValue) * 100;
             sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #cc9966 ${percent1}% , #cc9966 ${percent2}%, #dadae5 ${percent2}%)`;
         }
-    </script>
-    <!-- end script price slider -->
-
-    <!-- script search w pagination ajax -->
-    <script>
         $(document).ready(function() {
 
-            function filter_data() {
+            function get_filter(class_name) {
+                var filter = [];
+                $('.' + class_name + ':checked').each(function() {
+                    filter.push($(this).val());
+                });
+                return filter;
+            }
+            load_data(1);
+
+            function load_data(page, query = '') {
                 $('#dynamic-content').html('<div id="loading" style=""></div>');
                 var action = 'fetch_data';
                 var minimum_price = $('#slider-1').val();
                 var maximum_price = $('#slider-2').val();
                 var brand = get_filter('brand');
-            }
-
-            function get_filter(class_name) {
-                var filter = [];
-                $('.'+class_name+':checked').each(function(){
-                    filter.push($(this).val());
-                });
-            }
-
-            load_data(1);
-            
-            function load_data(page, query = '') {
+                // alert(brand);
                 $.ajax({
-                    url: "fetch.php",
+                    url: "fetch.php",   
                     method: "POST",
                     data: {
+                        action: action,
+                        minimum_price: minimum_price,
+                        maximum_price: maximum_price,
+                        brand: brand,
                         page: page,
                         query: query
                     },
@@ -302,6 +334,19 @@ include('opendb.php');
                 load_data(1, query);
             });
 
+            $('.brand-selector').click(function() {
+                load_data(1);
+            });
+            $('#price-range').slider({
+                range: true,
+                min: 30,
+                max: 9000,
+                values: [30, 9000],
+                step: 1,
+                stop: function(event, ui) {
+                    load_data(1);
+                }
+            });
         });
     </script>
     <!-- end script search w pagination ajax -->

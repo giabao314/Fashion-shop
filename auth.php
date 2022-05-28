@@ -107,8 +107,8 @@
                         var dataResult = JSON.parse(dataResult);
                         // console.log(JSON.parse(dataResult));
                         if (dataResult.statusCode == 200) {
-                            // alert('co vao day khong?');
-                            $("#ajaxreg").removeAttr("disabled");
+                            alert('co vao day khong?');
+                            // $("#ajaxreg").removeAttr("disabled");
                             $('#reg-form').find('input:text').val('');
                             $('#reg-form').find('input:password').val('');
                             $('#success').prop('disabled', true);
@@ -118,7 +118,7 @@
                             });
                             container.classList.remove("right-panel-active");
                         } else if (dataResult.statusCode == 201) {
-                            $("#ajaxreg").removeAttr("disabled");
+                            // $("#ajaxreg").removeAttr("disabled");
                             $('#error').prop('disabled', true);
                             $('#reg-form').find('input:email').val('');
                             $("#error").show();

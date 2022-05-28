@@ -12,7 +12,7 @@
 		$path = '../assets/img/product/';
 		
 		$hinhanh_tmp = $_FILES['hinhanh']['tmp_name'];
-		$sql_insert_product = mysqli_query($conn,"INSERT INTO sanpham(tenSP,donGIa,slTonKho,spImg,idLoaiSP) values ('$tensanpham','$gia','$soluong','$hinhanh','$danhmuc')");
+		$sql_insert_product = mysqli_query($conn,"INSERT INTO sanpham(tenSP,donGIa,slTonKho,anhSP,idLoaiSP) values ('$tensanpham','$gia','$soluong','$hinhanh','$danhmuc')");
 		move_uploaded_file($hinhanh_tmp,$path.$hinhanh);
 	}elseif(isset($_POST['capnhatsanpham'])) {
 		$id_update = $_POST['id_update'];
@@ -27,7 +27,7 @@
 			$sql_update_image = "UPDATE sanpham SET tenSP='$tensanpham',donGia='$gia',slTonKho='$soluong',idSP='$danhmuc' WHERE idSP='$id_update'";
 		}else{
 			move_uploaded_file($hinhanh_tmp,$path.$hinhanh);
-			$sql_update_image = "UPDATE sanpham SET tenSP='$tensanpham',donGia='$gia',slTonKho='$soluong',spImg='$hinhanh',idSP='$danhmuc' WHERE idSP='$id_update'";
+			$sql_update_image = "UPDATE sanpham SET tenSP='$tensanpham',donGia='$gia',slTonKho='$soluong',anhSP='$hinhanh',idSP='$danhmuc' WHERE idSP='$id_update'";
 		}
 		mysqli_query($conn,$sql_update_image);
 	}
@@ -81,7 +81,7 @@
 					<input type="hidden" class="form-control" name="id_update" value="<?php echo $row_capnhat['idSP'] ?>">
 					<label>Hình ảnh</label>
 					<input type="file" class="form-control" name="hinhanh"><br>
-					<img src="../assets/img/product/<?php echo $row_capnhat['spImg'] ?>" height="80" width="80"><br>
+					<img src="../assets/img/product/<?php echo $row_capnhat['anhSP'] ?>" height="80" width="80"><br>
 					<label>Giá</label>
 					<input type="text" class="form-control" name="giasanpham" value="<?php echo $row_capnhat['donGia'] ?>"><br>
 					<label>Số lượng</label>
@@ -157,7 +157,6 @@
 						<th>Tên sản phẩm</th>
 						<th>Hình ảnh</th>
 						<th>Số lượng tồn</th>
-						<th>Số lượng bán</th>
 						<th>Danh mục</th>
 						<th>Giá sản phẩm</th>
 						<th>Quản lý</th>
@@ -171,9 +170,8 @@
 					<tr>
 						<td><?php echo $i ?></td>
 						<td><?php echo $row_sp['tenSP'] ?></td>
-						<td><img src="../assets/img/product/<?php echo $row_sp['spImg'] ?>" height="100" width="80"></td>
+						<td><img src="../assets/img/product/<?php echo $row_sp['anhSP'] ?>" height="100" width="80"></td>
 						<td><?php echo $row_sp['slTonKho'] ?></td>
-						<td><?php echo $row_sp['slBan'] ?></td>
 						<td><?php echo $row_sp['tenLoaiSP'] ?></td>
 						<td><?php echo number_format($row_sp['donGia']).'$' ?></td>
 						<td><a href="?xoa=<?php echo $row_sp['idSP'] ?>">Xóa</a> || <a href="xulysanpham.php?quanly=capnhat&capnhat_id=<?php echo $row_sp['idSP'] ?>">Cập nhật</a></td>

@@ -65,7 +65,7 @@
                 <div class="auth-btn">
                     <!-- <a href="auth.php"> -->
                     <button id="auth-index" class="right-item auth js-sign-auth">Đăng nhập / Đăng kí</button>
-                    <a href="user.php">
+                    <a href="#">
                         <?php
                         if (isset($_SESSION['elog'])) {
                         ?>
@@ -77,19 +77,32 @@
                             <a class="right-item auth" href="logout.php">
                                 Đăng xuất
                             </a>
-                            <a class="right-item auth" href="user.php">
-                                <?php
-                                echo "Chào " . $_SESSION['signIn_name'];
-                                ?>
-                            </a>
+                            <?php
+                            if ($_SESSION['elog'] == 'admin123') {
+                            ?>
+                                <a class="right-item auth" href="./admin/">
+                                    <?php
+                                    echo "Chào " . $_SESSION['signIn_name'];
+                                    ?>
+                                </a>
+                            <?php
+                            } else {
+                            ?>
+                                <a class="right-item auth" href="user.php">
+                                    <?php
+                                    echo "Chào " . $_SESSION['signIn_name'];
+                                    ?>
+                                </a>
                         <?php
+                            }
                         }
                         ?>
                     </a>
                     <!-- </a> -->
                 </div>
                 <div class="cart-dropdown">
-                    <a class="nav-cart" href="cart.php?quanly=xemdonhang&khachhang=<?php echo $_SESSION['signIn_id'] ?>">
+
+                    <a class="nav-cart" href="cart.php<?php echo $_SESSION['signIn_id'] ?>">
                         <i class='bx bx-cart-alt bx-tada cart-item'></i>
                         <span class="nav-product-count">5</span>
                         <!-- <div class="clear"></div> -->

@@ -8,10 +8,8 @@ if ($_POST['type'] == 1)
     $email = $_POST['email'];
     $pass = $_POST['pass'];
     $checkEmail = mysqli_query($conn, "select * from taikhoan where email='$email'");
-    // echo(mysqli_num_rows($checkEmail));
     if (mysqli_num_rows($checkEmail) > 0) 
     {
-        // echo('email trung');
         echo json_encode(array("statusCode" => 201));
     } 
     else {

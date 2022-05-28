@@ -23,7 +23,7 @@ $result = $statement->fetchAll();
             <?php echo $row['tenLoaiSP'] . " " ?> <span class="item-count">(<?php echo ($row['sum']) ?>)</span>
             </div>
             <div class="filter-query">
-            <input type="checkbox" class="brand-selector" value="<?php echo $row['tenLoaiSP'] ?>">
+            <input type="checkbox" class="brand-selector brand" value="<?php echo $row['tenLoaiSP'] ?>">
                 
             </div>
         </a>
