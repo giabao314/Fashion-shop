@@ -226,6 +226,7 @@ if (isset($_POST["action"])) {
     $(document).ready(function() {
         $(".btn-product-cart").on('click', function() {
             var idSP = $_POST['idSP'];
+            alert(idSP);
             $.ajax({
                 url: "giohang.php",
                 method: "POST",
